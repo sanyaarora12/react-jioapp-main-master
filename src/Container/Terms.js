@@ -4,7 +4,7 @@ export class Terms extends Component {
   render() {
     return (
       <div>
-        <h1>Terms and conditions applied</h1>
+        <p>Terms and conditions applied</p>
       </div>
     );
   }
