@@ -9,7 +9,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 button{
-    background-color: aqua;
+    background-color: red;
 }
 `
 export default GlobalStyles;
