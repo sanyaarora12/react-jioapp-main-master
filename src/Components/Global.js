@@ -5,15 +5,16 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-size: large;
     float: inline-end;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-left: 0px;
     font: 200;
-    margin-left: 10px;
+    text-decoration-color: white;
 }
 body{
     font: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    float: left;
+    text-align: left;
+    margin-left: 10px;
 }
 button{
     background-color: blue;
@@ -22,7 +23,8 @@ button{
     height: 50px;
     border-radius: 20px;
     color: white;
-    margin-left: 25px;
+    margin-left: 10px;
+    justify-content: center;
 }
 &h1{
     text-align: left;
@@ -30,9 +32,7 @@ button{
     font-size: larger;
     font: 300;
 }
-&Navlink{
-    margin-left: 0px;
-    justify-self: left;
-}
 `;
+
+
 export default GlobalStyles;
