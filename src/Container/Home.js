@@ -6,7 +6,7 @@ export class Home extends Component {
   render() {
     return (
       <div>
-        <HomeStyles />
+        <HomeStyles/>
         <h1>Welcome to Jio POSLite</h1>
         <br />
         <button type="button" className="btn btn-primary btn-lg">

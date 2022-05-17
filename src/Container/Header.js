@@ -9,13 +9,13 @@ export default function Header() {
       <div className="App">
         <h1>Welcome to JioPos Lite</h1>
         <div>
-        <input type="text" placeholder="Enter your number"  />
-      </div>
-        <button>
+        <input type="text" placeholder="Enter your number"  /><button>
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             Login
           </Link>
         </button>
+      </div>
+        
       </div>
     </header>
   );

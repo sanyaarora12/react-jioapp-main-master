@@ -11,10 +11,9 @@ const HomeStyles = createGlobalStyle`
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
 }
-button{
+&button{
     font-size: 15px;
     background-color: blue;
-    size-adjust: inherit;
 }
 `
 export default HomeStyles;

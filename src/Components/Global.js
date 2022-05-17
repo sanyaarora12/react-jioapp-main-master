@@ -7,12 +7,12 @@ const GlobalStyles = createGlobalStyle`
     float: inline-end;
     margin-top: 5px;
     margin-left: 0px;
-    font: 200;
+    font: 200px;
     text-decoration-color: white;
 }
 body{
-    font: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: left;
     margin-left: 10px;
 }
@@ -29,8 +29,7 @@ button{
 &h1{
     text-align: left;
     margin-left: 20px;
-    font-size: larger;
-    font: 300;
+    font-size: 30px;
 }
 `;
 

@@ -23,6 +23,7 @@ export default function Page() {
           <div className="field">
             <div>
               <label>Email</label>
+              <br />
               <input
                 type="text"
                 name="Email"
