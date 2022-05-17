@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  background-color: blue;
-  border-radius: 5px;
-  font-size: 32px;
-  color: white;
+  * {
+    text-align: center;
+    justify-content: center;
+    background-color: blue;
+    border-radius: 5px;
+    font-size: 5px;
+    color: white;
+  }
 `;
 
 const Button = () => {
-  return <StyledButton>click here</StyledButton>;
+  return <StyledButton>Login</StyledButton>;
 };
 
 export default Button;

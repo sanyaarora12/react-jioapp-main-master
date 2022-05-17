@@ -3,18 +3,21 @@ import { Link } from "react-router-dom";
 import HomeStyles from "../Components/HomeStyles";
 
 export default function Header() {
-  return (
+  return ( 
     <header>
+      <HomeStyles />
       <div className="App">
-        <HomeStyles />
-        <h1>Welcome to Header Page</h1>
-        <h2>Start editing to see some magic happen!</h2>
+        <h1>Welcome to JioPos Lite</h1>
+        <div>
+        <input type="text" placeholder="Enter your number"  />
+      </div>
         <button>
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            Go To Home
+            Login
           </Link>
         </button>
       </div>
     </header>
   );
 }
+
