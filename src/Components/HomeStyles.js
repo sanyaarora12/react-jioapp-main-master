@@ -12,9 +12,9 @@ const HomeStyles = createGlobalStyle`
     text-align: center;
     margin-top: 150px;
 }
-&button{
+button{
     font-size: 15px;
     background-color: blue;
 }
-`
+`;
 export default HomeStyles;

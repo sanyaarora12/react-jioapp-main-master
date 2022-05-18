@@ -28,7 +28,7 @@ button{
     justify-content: center;
 }
 &h1{
-    text-align: left;
+    text-align: center;
     margin-left: 20px;
     font-size: 30px;
 }
@@ -37,6 +37,5 @@ button{
     color: gray;
 }
 `;
-
 
 export default GlobalStyles;
