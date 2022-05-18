@@ -15,6 +15,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: left;
     margin-left: 10px;
+    background-color: antiquewhite;
 }
 button{
     background-color: blue;
@@ -30,6 +31,10 @@ button{
     text-align: left;
     margin-left: 20px;
     font-size: 30px;
+}
+&h2{
+    margin-top: 0px;
+    color: gray;
 }
 `;
 

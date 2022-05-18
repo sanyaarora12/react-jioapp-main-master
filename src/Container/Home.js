@@ -7,7 +7,7 @@ export class Home extends Component {
     return (
       <div>
         <HomeStyles/>
-        <h1>Welcome to Jio POSLite</h1>
+        <h1>Welcome to JioPos Lite</h1>
         <br />
         <button type="button" className="btn btn-primary btn-lg">
           <Link to="/header" style={{ textDecoration: "none", color: "White" }}>

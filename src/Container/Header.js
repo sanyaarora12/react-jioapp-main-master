@@ -7,10 +7,12 @@ export default function Header() {
     <header>
       <HomeStyles />
       <div className="App">
-        <h1>Welcome to JioPos Lite</h1>
         <div>
-        <input type="text" placeholder="Enter your number"  /><button>
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <h1>Welcome</h1>
+        <h2>Become a JIO Associate and start earning now!</h2>
+        <input type="text" placeholder="Enter your number"  /><br />
+        <button>
+          <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
             Login
           </Link>
         </button>

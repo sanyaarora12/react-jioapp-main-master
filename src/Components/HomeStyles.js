@@ -10,6 +10,7 @@ const HomeStyles = createGlobalStyle`
     font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
+    margin-top: 150px;
 }
 &button{
     font-size: 15px;
