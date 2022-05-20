@@ -16,7 +16,7 @@ export default function Header() {
           <br />
           <button>
             <Link
-              to="/login"
+              to="/"
               style={{ textDecoration: "none", color: "white" }}
             >
               Login

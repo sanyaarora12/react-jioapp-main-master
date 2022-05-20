@@ -1,18 +1,42 @@
-import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-const StyledButton = styled.button`
-  * {
-    /* text-align: center;
-    justify-content: center;
+const Button = createGlobalStyle`
+*{
+    box-sizing: border-box;
+    font-size: large;
+    float: inline-end;
+    margin-top: 5px;
+    margin-left: 0px;
+    font: 200px;
+    text-decoration-color: white;
+}
+body{
+    font: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    margin-left: 30px;
+    background-color: white;
+}
+button{
     background-color: blue;
-    border-radius: 5px;
-    font-size: 5px;
-    color: white; */
-  }
+    font-size: large;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    justify-content: center;
+}
+&h1{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 30px;
+}
+&h2{
+    margin-top: 0px;
+    color: gray;
+}
 `;
 
-const Button = () => {
-  return <StyledButton>Login2</StyledButton>;
-};
 
 export default Button;

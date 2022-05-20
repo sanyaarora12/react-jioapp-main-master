@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import GlobalStyles from "../Components/Global";
+import { Link,NavLink } from "react-router-dom";
+import Button from "../Components/Button";
+
 
 export default function Page() {
   const initialValues = { email: "", phone: "", shop: "" };
@@ -16,7 +17,7 @@ export default function Page() {
   return (
     <div className="container">
       <form>
-        <GlobalStyles />
+        <Button />
         <h1>Register to Jio Mart Digital</h1>
         <div className="ui divider"></div>
         <div className="ui form">
@@ -69,7 +70,12 @@ export default function Page() {
       </div>
       <br />
       <button type="button" id="Nextbutton" class="btn btn-primary btn-lg" >
+      <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "white" }}
+            >
         Send OTP
+        </Link>
       </button>
     </div>
   );

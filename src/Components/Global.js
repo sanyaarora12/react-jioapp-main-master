@@ -15,7 +15,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: left;
     margin-left: 10px;
-    background-color: antiquewhite;
+    background-color: white;
 }
 button{
     background-color: blue;
