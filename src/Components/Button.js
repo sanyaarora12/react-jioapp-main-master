@@ -12,7 +12,8 @@ const Button = createGlobalStyle`
 }
 body{
     font: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
     text-align: left;
     margin-left: 30px;
     background-color: white;
@@ -35,6 +36,16 @@ button{
 &h2{
     margin-top: 0px;
     color: gray;
+}
+input {
+  border-radius: 3px;
+  border: 1px solid #777;
+}
+input.error {
+  border-color: red;
+}
+.input-feedback {
+  color: red;
 }
 `;
 

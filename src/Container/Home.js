@@ -19,7 +19,10 @@ export class Home extends Component {
         <br />
         <br />
         <button type="button" className="btn btn-primary btn-lg">
-          <Link to="/page" style={{ textDecoration: "none", color: "White" }}>
+          <Link
+            to="/validatedloginform"
+            style={{ textDecoration: "none", color: "White" }}
+          >
             Register
           </Link>
         </button>
