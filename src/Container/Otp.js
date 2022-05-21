@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import OtpStyle from "../Components/OtpStyle";
 
-
 export default function Otp() {
    
     function clickEvent(first,last){
