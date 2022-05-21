@@ -14,18 +14,9 @@ button{
 .container{
     display: flex;
     flex-flow: column;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
-    margin: auto;
-}
-input{
-    margin: "10px";
-    height: "1000px";
-    width: "100px";
-    border-radius: "10px";
-    border-color: blue;
-    text-align: center;
-    background: white;
+    align-items: center;
 }
 `;
 

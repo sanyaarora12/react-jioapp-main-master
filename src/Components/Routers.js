@@ -8,20 +8,20 @@ import { LoginForm } from "../Container/LoginForm";
 import KycPage from "../Container/KycPage";
 import Otp from "../Container/Otp";
 
-export default function Routers () {
+export default function Routers() {
   return (
     <div>
-        <Router>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/header" element={<Header />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm/>} />
-            <Route path="/LoginForm" element={<LoginForm />} />
-            <Route path="/KycPage" element={<KycPage />} />
-            <Route path="/otp" element={<Otp/>} />
-          </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/header" element={<Header />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
+          <Route path="/LoginForm" element={<LoginForm />} />
+          <Route path="/KycPage" element={<KycPage />} />
+          <Route path="/otp" element={<Otp />} />
+        </Routes>
+      </Router>
     </div>
-  )
+  );
 }
