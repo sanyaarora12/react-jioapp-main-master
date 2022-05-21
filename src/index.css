@@ -88,3 +88,9 @@ p {
 .holders {
   border-radius: 30px;
 }
+#placeholder{
+width: 250px;
+}
+#sec{
+  width: 30px;
+}

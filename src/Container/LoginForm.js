@@ -30,11 +30,11 @@ export class LoginForm extends React.Component {
           value={Phonenumber}
           onChange={this.handleChange}
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Shop Name</label>
         <input
           name="email"
           type="text"
-          placeholder="Enter your email"
+          placeholder="Enter your Shop name"
           value={shopname}
           onChange={this.handleChange}
         />
