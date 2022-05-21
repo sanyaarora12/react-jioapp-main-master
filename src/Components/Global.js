@@ -16,6 +16,8 @@ body{
     text-align: left;
     margin-left: 10px;
     background-color: white;
+    justify-content: center;
+    align-items: center;
 }
 button{
     background-color: blue;

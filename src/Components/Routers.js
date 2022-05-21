@@ -15,8 +15,7 @@ export default function Routers () {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/header" element={<Header />} />
-            <Route path="/terms" element={<Terms />} />
+            <Route path="/header" element={<Header />} /><Route path="/terms" element={<Terms />} />
             <Route path="/page" element={<Page />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm/>} />
