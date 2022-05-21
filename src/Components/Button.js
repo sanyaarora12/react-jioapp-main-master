@@ -8,7 +8,7 @@ const Button = createGlobalStyle`
     margin-top: 5px;
     margin-left: 0px;
     font: 200px;
-    text-decoration-color: black;
+    text-decoration-color: white;
 }
 body{
     font: 50px;
