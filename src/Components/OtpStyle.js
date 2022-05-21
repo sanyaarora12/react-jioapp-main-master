@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const OtpStyles = createGlobalStyle`
+const OtpStyle = createGlobalStyle`
 button{
     background-color: blue;
     font-size: large;
@@ -29,4 +29,4 @@ input{
 }
 `;
 
-export default OtpStyles;
+export default OtpStyle;

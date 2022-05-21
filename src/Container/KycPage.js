@@ -13,16 +13,16 @@ export default function KycPage(){
       Looks good!
     </div>
   </div>
-  {/* <div>
+   <div>
   <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Last name</label>
+    <label for="validationCustom02" class="form-label">Aadhar Number</label>
     <input type="text" class="form-control" id="validationCustom02" required/>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   </div>
-  <div class="col-md-4">
+ {/* <div class="col-md-4">
     <label for="validationCustomUsername" class="form-label">Username</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">@</span>
@@ -66,10 +66,10 @@ export default function KycPage(){
         You must agree before submitting.
       </div>
     </div>
-  </div>
+  </div> */}
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Submit form</button>
-  </div> */}
+  </div> 
 </form> 
   
 </div>

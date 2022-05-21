@@ -6,6 +6,7 @@ import Terms from "../Container/Terms";
 import ValidatedLoginForm from "../Container/ValidatedLoginForm";
 import { LoginForm } from "../Container/LoginForm";
 import KycPage from "../Container/KycPage";
+import Otp from "../Container/Otp";
 
 export default function Routers () {
   return (
@@ -18,6 +19,7 @@ export default function Routers () {
             <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm/>} />
             <Route path="/LoginForm" element={<LoginForm />} />
             <Route path="/KycPage" element={<KycPage />} />
+            <Route path="/otp" element={<Otp/>} />
           </Routes>
         </Router>
     </div>

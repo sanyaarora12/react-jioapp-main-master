@@ -135,7 +135,7 @@ const ValidatedLoginForm = () => (
             <br />
             <button type="submit" disabled={isSubmitting}>
               <Link
-                to="/kycpage"
+                to="/otp"
                 style={{ textDecoration: "none", color: "White" }}
               >
                 Login

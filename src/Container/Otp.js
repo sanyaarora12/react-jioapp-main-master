@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import OtpStyles from "../Components/OtpStyles";
+import React from "react";
+import { Link } from "react-router-dom";
+import OtpStyle from "../Components/OtpStyle";
 
 
 export default function Otp() {
@@ -12,7 +13,7 @@ export default function Otp() {
     };
       return (
         <div>
-          <OtpStyles/>
+          <OtpStyle/>
           <div className="container">
               <h2>Otp has been sent successfully. <br/> Please enter the same OTP below</h2>
               <div className="userInput">
@@ -25,7 +26,10 @@ export default function Otp() {
           <br/> <br/> <br/> <br/>
         
           <button type="button" className="btn btn-primary btn-lg">
+            <Link to="/kycpage"
+            style={{ textDecoration: "none", color: "White" }}>
             Submit
+            </Link>
           </button>
           
         </div></div>
