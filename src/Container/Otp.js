@@ -9,7 +9,7 @@ export default function Otp() {
 
   return (
     <>
-      <OtpStyles />
+      <OtpStyle />
       <div className="container">
         <h3>
           Otp has been sent successfully.
