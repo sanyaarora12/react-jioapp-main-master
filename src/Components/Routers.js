@@ -7,6 +7,7 @@ import Terms from "../Container/Terms";
 import Login from "../Container/Login"
 import ValidatedLoginForm from "../Container/ValidatedLoginForm";
 import { LoginForm } from "../Container/LoginForm";
+import Otp from "../Container/Otp";
 
 export default function Routers () {
   return (
@@ -20,6 +21,7 @@ export default function Routers () {
             <Route path="/Login" element={<Login />} />
             <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm/>} />
             <Route path="/LoginForm" element={<LoginForm />} />
+            <Route path="/Otp" element={<Otp />} />
           </Routes>
         </Router>
     </div>
