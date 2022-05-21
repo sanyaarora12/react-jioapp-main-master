@@ -11,10 +11,10 @@ export default function Otp() {
     <>
       <OtpStyles />
       <div className="container">
-        <h2>
+        <h3>
           Otp has been sent successfully.
           <br /> Please enter the same OTP below{" "}
-        </h2>
+        </h3>
         <OtpInput
           value={code}
           onChange={handleChange}
