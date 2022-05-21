@@ -6,7 +6,7 @@ const Button = createGlobalStyle`
     font-size: large;
     float: inline-end;
     margin-top: 5px;
-    margin-left: 0px;
+    margin-left: 5px;
     font: 200px;
     text-decoration-color: white;
 }

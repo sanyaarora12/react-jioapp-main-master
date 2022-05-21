@@ -1,20 +1,20 @@
 import React from "react";
-
+import Button from "../Components/Button";
 export default function KycPage(){
     return(
         <div>
+          <Button />
+          
         <h1>Personal Details</h1>
         <form className="row g-3 needs-validation" novalidate>
-  <div className="col-md-4">
+  <div className="col-md-3">
       <br />
     <label for="validationCustom01" class="form-label">PAN Card Number</label>
     <input type="text" class="form-control" id="validationCustom01"  required />
     <div className="valid-feedback">
       Looks good!
     </div>
-  </div>
-   <div>
-  <div class="col-md-4">
+    <div class="col-md-20">
     <label for="validationCustom02" class="form-label">Aadhar Number</label>
     <input type="text" class="form-control" id="validationCustom02" required/>
     <div class="valid-feedback">
