@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import * as EmailValidator from "email-validator";
 import * as Yup from "yup";
 import Button from "../Components/Button";
+
 const ValidatedLoginForm = () => (
   <Formik
     initialValues={{ email: "", Phonenumber: "", shopname: "" }}
@@ -63,6 +64,7 @@ const ValidatedLoginForm = () => (
         <>
           <Button />
           <h1>Register to Jio Mart Digital</h1>
+          <br />
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email">Email</label>

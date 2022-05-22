@@ -66,16 +66,6 @@ p {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-#Nextbutton {
-  width: 200px;
-  margin-left: 30px;
-  border-radius: 20px;
-}
-#Loginbtn {
-  width: 200px;
-  height: 50px;
-  border-radius: 20px;
-}
 #Proceedbutton {
   margin-left: 5px;
   width: 300px;
@@ -93,4 +83,5 @@ width: 250px;
 }
 #sec{
   width: 30px;
+  text-align: center;
 }

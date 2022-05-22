@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import OtpInput from "react-otp-input";
 import OtpStyle from "../Components/OtpStyle";
+import { useState } from "react";
 
 export default function Otp() {
   const [code, setCode] = useState("");
@@ -9,7 +11,7 @@ export default function Otp() {
 
   return (
     <>
-      <OtpStyles />
+      <OtpStyle />
       <div className="container">
         <h3>
           Otp has been sent successfully.
@@ -38,6 +40,17 @@ export default function Otp() {
             outline: "none",
           }}
         />
+        <br />
+        <br />
+        <br />
+        <button type="button" className="btn btn-primary btn-lg">
+          <Link
+            to="/validatedloginform"
+            style={{ textDecoration: "none", color: "White" }}
+          >
+            Submit
+          </Link>
+        </button>
       </div>
     </>
   );
