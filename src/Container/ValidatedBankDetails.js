@@ -16,13 +16,12 @@ const ValidatedBankDetails = () => (
     //********Handling validation messages yourself*******/
     validate={(values) => {
       let errors = {};
+
       const AccountNumberRegex = /(?=.*[0-10])/;
       if (!values.AccountNumber) {
         errors.AccountNumber = "Required";
       } else if (values.AccountNumber.length === 11) {
         errors.AccountNumber = "Phone number must be 10 digits only.";
-      } else if (!AccountNumberRegex.test(values.AccountNumber)) {
-        errors.AccountNumber = "Invalid account number must contain 10 digits";
       }
 
       const AccNumberRegex = /(?=.*[0-10])/;
@@ -32,8 +31,8 @@ const ValidatedBankDetails = () => (
         errors.AccNumber = "Phone number must be 10 digits only.";
       } else if (!AccNumberRegex.test(values.AccNumber)) {
         errors.AccNumber = "Invalid account number must contain one number";
-      } else if (AccNumberRegex !== AccountNumberRegex) {
-        errors.AccNumber = "Your Account number does not match";
+      } else if (AccNumberRegex=== AccountNumberRegex) {
+        errors.AccNumber = "Your Account numbers do not match";
       }
 
       if (!values.Ifsc) {
