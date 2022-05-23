@@ -84,6 +84,7 @@ const ValidatedBankDetails = () => (
                 className={
                   errors.AccountNumber && touched.AccountNumber && "error"
                 }
+                required
               />
               {errors.AccountNumber && touched.AccountNumber && (
                 <div className="input-feedback">{errors.AccountNumber}</div>
@@ -101,6 +102,7 @@ const ValidatedBankDetails = () => (
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.AccNumber && touched.AccNumber && "error"}
+                required
               />
               {errors.AccNumber && touched.AccNumber && (
                 <div className="input-feedback">{errors.AccNumber}</div>
@@ -118,6 +120,7 @@ const ValidatedBankDetails = () => (
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.Ifsc && touched.Ifsc && "error"}
+                required
               />
               {errors.Ifsc && touched.Ifsc && (
                 <div className="input-feedback">{errors.Ifsc}</div>
