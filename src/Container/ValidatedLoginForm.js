@@ -131,9 +131,6 @@ const ValidatedLoginForm = () => (
                   </div>
                 </div>
               </div>
-           
-            {/* <label>Shop name</label>
-          <input type="text" placeholder="Enter your shop name"/> */}
             <br />
             <button type="submit" disabled={isSubmitting}>
               <Link
