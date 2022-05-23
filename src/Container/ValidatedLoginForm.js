@@ -116,7 +116,7 @@ const ValidatedLoginForm = () => (
               {errors.shopname && touched.shopname && (
                 <div className="input-feedback">{errors.shopname}</div>
               )}
-                <div className="form-check">
+                {/* <div className="form-check">
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -129,7 +129,7 @@ const ValidatedLoginForm = () => (
                   <div className="invalid-feedback">
                     You must agree before submitting.
                   </div>
-                </div>
+                </div> */}
               </div>
             <br />
             <button type="submit" disabled={isSubmitting}>
