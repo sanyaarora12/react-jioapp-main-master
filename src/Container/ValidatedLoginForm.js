@@ -78,6 +78,7 @@ const ValidatedLoginForm = () => (
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.email && touched.email && "error"}
+                required
               />
               {errors.email && touched.email && (
                 <div className="input-feedback">{errors.email}</div>
@@ -95,6 +96,7 @@ const ValidatedLoginForm = () => (
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.Phonenumber && touched.Phonenumber && "error"}
+                required
               />
               {errors.Phonenumber && touched.Phonenumber && (
                 <div className="input-feedback">{errors.Phonenumber}</div>
@@ -112,6 +114,7 @@ const ValidatedLoginForm = () => (
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.shopname && touched.shopname && "error"}
+                required
               />
               {errors.shopname && touched.shopname && (
                 <div className="input-feedback">{errors.shopname}</div>

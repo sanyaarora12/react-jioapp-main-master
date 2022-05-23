@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import OtpInput from "react-otp-input";
+// import OtpInput from "react-otp-input";
 import OtpStyle from "../Components/OtpStyle";
+<<<<<<< HEAD
 import { useState } from "react";
 
 export default function Otp() {
@@ -45,12 +46,67 @@ export default function Otp() {
         <button type="button" className="btn btn-primary btn-lg">
           <Link
             to="/KycPage"
+=======
+
+export default function Otp() {
+  // function clickEvent(first,last){
+  //     if(first.value.length){
+  //         document.getElementById(last).focus();
+  //     }
+
+  // };
+  return (
+    <div>
+      <OtpStyle />
+      <div className="container">
+        <h2>
+          Otp has been sent successfully. <br /> please enter the same OTP below
+        </h2>
+        <br />
+        <div class="hstack gap-3">
+          <input
+            type="text"
+            id="sec"
+            maxLength="1"
+            onkeyup="clickEvent(this,'sec')"
+          ></input>
+          <input
+            type="text"
+            id="sec"
+            maxLength="1"
+            onkeyup="clickEvent(this, 'third')"
+          ></input>
+          <input
+            type="text"
+            id="sec"
+            maxLength="1"
+            onkeyup="clickEvent(this, 'fourth')"
+          ></input>
+          <input
+            type="text"
+            id="sec"
+            maxLength="1"
+            onkeyup="clickEvent(this, 'fifth')"
+          ></input>
+          <input type="text" id="sec" maxLength="1"></input>
+        </div>
+        <br />
+
+        <button type="button" className="btn btn-primary btn-lg">
+          <Link
+            to="/kycpage"
+            id="submit"
+>>>>>>> be1ea977c8a667604a1e9533fca1795936d24e13
             style={{ textDecoration: "none", color: "White" }}
           >
             Submit
           </Link>
         </button>
       </div>
+<<<<<<< HEAD
     </>
+=======
+    </div>
+>>>>>>> be1ea977c8a667604a1e9533fca1795936d24e13
   );
 }
