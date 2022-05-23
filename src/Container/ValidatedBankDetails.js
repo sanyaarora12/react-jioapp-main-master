@@ -31,7 +31,7 @@ const ValidatedBankDetails = () => (
         errors.AccNumber = "Phone number must be 10 digits only.";
       } else if (!AccNumberRegex.test(values.AccNumber)) {
         errors.AccNumber = "Invalid account number must contain one number";
-      } else if (AccNumberRegex=== AccountNumberRegex) {
+      } else if (AccNumberRegex === AccountNumberRegex) {
         errors.AccNumber = "Your Account numbers do not match";
       }
 
@@ -107,6 +107,24 @@ const ValidatedBankDetails = () => (
                 <div className="input-feedback">{errors.AccNumber}</div>
               )}
             </div>
+            <br />
+            <div class="dropdown">
+              <button
+                class="btn btn dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                required
+              >
+                Please select Bank name
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+              </ul>
+            </div>
             <div>
               <label htmlFor="email">IFSC Code</label>
               <br />
@@ -124,7 +142,7 @@ const ValidatedBankDetails = () => (
               {errors.Ifsc && touched.Ifsc && (
                 <div className="input-feedback">{errors.Ifsc}</div>
               )}
-              
+
               <div class="mb-3" id="a">
                 <label for="formFileSm" class="form-label">
                   Upload Cancelled Cheque
@@ -137,19 +155,19 @@ const ValidatedBankDetails = () => (
                 />
               </div>
               <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="invalidCheck"
-                    required
-                  />
-                  <label className="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                  </label>
-                  <div className="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="invalidCheck"
+                  required
+                />
+                <label className="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div className="invalid-feedback">
+                  You must agree before submitting.
                 </div>
+              </div>
             </div>
             <br />
             <button type="submit" disabled={isSubmitting}>
