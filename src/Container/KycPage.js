@@ -103,33 +103,3 @@ export class KycPage extends React.Component {
     console.log(this.state);
   };
 }
-
-//  function ValidatePAN() {
-//         var txtPANCard = document.getElementById("txtPANCard");
-//         var lblPANCard = document.getElementById("lblPANCard")
-//         var regex = /([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
-//         if (regex.test(txtPANCard.value.toUpperCase())) {
-//             lblPANCard.style.visibility = "hidden";
-//             return true;
-//         } else {
-//             lblPANCard.style.visibility = "visible";
-//             return false;
-//         }
-//     }
-//   render() {
-//     return (
-//       <div>
-//         PAN Card:
-//         <input name="txtPANCard" type="text" id="txtPANCard" class="PAN" />
-//         <span id="lblPANCard" class="error">
-//           Invalid PAN Number
-//         </span>
-//         <hr />
-//         <input
-//           type="button"
-//           id="btnSubmit"
-//           value="Submit"
-//           onclick="ValidatePAN()"
-//         />
-//       </div>
-//     );
