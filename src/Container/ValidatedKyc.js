@@ -59,6 +59,7 @@ const ValidatedKyc = () => (
       return (
         <>
           <Button />
+
           <h1>Personal Details</h1>
           <form onSubmit={handleSubmit}>
             <div>

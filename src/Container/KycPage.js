@@ -17,36 +17,38 @@ export class KycPage extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <KycStyle />
-        <label>PanNumber</label>
-        <input
-          name="PanNumber"
-          type="text"
-          placeholder="Enter your PanNumber"
-          maxLength={10}
-          value={PanNumber}
-          onChange={this.handleChange}
-        />
-        <label>Adhaar number</label>
-        <input
-          name="Adhaar number"
-          type="text"
-          placeholder="Enter your Adhar number"
-          value={Adhaarnumber}
-          onChange={this.handleChange}
-        />
-        <br /> <br />
-        <label>GSTNumber</label>
-        <input
-          name="GSTNumber"
-          type="text"
-          placeholder="Enter your GST Number"
-          value={GSTNumber}
-          onChange={this.handleChange}
-        />
-        <br /> <br />
-        <button type="submit">
-          <Link to="/Address">Submit</Link>
-        </button>
+        <div classname="k">
+          <label>PanNumber</label>
+          <input
+            name="PanNumber"
+            type="text"
+            placeholder="Enter your PanNumber"
+            maxLength={10}
+            value={PanNumber}
+            onChange={this.handleChange}
+          />
+          <label>Adhaar number</label>
+          <input
+            name="Adhaar number"
+            type="text"
+            placeholder="Enter your Adhar number"
+            value={Adhaarnumber}
+            onChange={this.handleChange}
+          />
+          <br /> <br />
+          <label>GSTNumber</label>
+          <input
+            name="GSTNumber"
+            type="text"
+            placeholder="Enter your GST Number"
+            value={GSTNumber}
+            onChange={this.handleChange}
+          />
+          <br /> <br />
+          <button type="submit">
+            <Link to="/Address">Submit</Link>
+          </button>
+        </div>
       </form>
     );
   }

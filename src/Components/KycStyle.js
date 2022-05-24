@@ -11,7 +11,7 @@ button{
     margin-left: 10px;
     justify-content: center;
 }
-.K{
+.k{
     display: flex;
     flex-flow: column;
     height: 100vh;
