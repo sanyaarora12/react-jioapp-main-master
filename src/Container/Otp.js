@@ -23,7 +23,7 @@ export default function Otp() {
           separator={<span style={{ width: "8px" }}></span>}
           isInputNum={true}
           shouldAutoFocus={true}
-          required
+          required={true}
           inputStyle={{
             boxShadow: "1px 3px 1px blue",
             border: "1px solid transparent ",
@@ -50,7 +50,8 @@ export default function Otp() {
           >
             Submit
           </Link>
-        </button><br />
+        </button>
+        <br />
         <button type="button" className="btn btn-primary btn-lg">
           <Link
             to="/validatedbankdetails"
