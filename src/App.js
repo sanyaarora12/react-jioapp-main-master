@@ -1,14 +1,10 @@
-
 import Routers from "./Components/Routers";
-
-
 
 function App() {
   return (
-    
-      <body >
-        <Routers />
-      </body>
+    <body>
+      <Routers />
+    </body>
   );
 }
 

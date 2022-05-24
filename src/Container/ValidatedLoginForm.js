@@ -29,7 +29,7 @@ const ValidatedLoginForm = () => (
       } else if (values.Phonenumber.length === 11) {
         errors.Phonenumber = "Phone number must be 10 digits only.";
       } else if (!PhonenumberRegex.test(values.Phonenumber)) {
-        errors.Phonenumber = "Invalida Phonenumber. Must contain one number";
+        errors.Phonenumber = "Invalid Phonenumber ";
       }
 
       if (!values.shopname) {

@@ -38,6 +38,12 @@ button{
     margin-top: 0px;
     color: gray;
 }
+input.error {
+  border-color: red;
+}
+.input-feedback {
+  color: red;
+}
 `;
 
 export default GlobalStyles;
