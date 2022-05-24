@@ -25,9 +25,9 @@ export class Address extends React.Component {
             name="PinCode"
             type="number"
             placeholder="Enter your PinCode"
-            required="true"
             value={PinCode}
             onChange={this.handleChange}
+            required
           />
           <br />
           <br />
@@ -83,7 +83,7 @@ export class Address extends React.Component {
             name="Address"
             type="Address"
             placeholder="Enter your Address"
-            required="true"
+            required
             value={Address}
             onChange={this.handleChange}
           />
