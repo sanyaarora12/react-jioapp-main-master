@@ -18,7 +18,7 @@ export class BankDetails extends React.Component {
         <input
           name="email"
           type="text"
-          placeholder="Enter your email"
+          placeholder="Enter your Account Number"
           value={AccountNumber}
           onChange={this.handleChange}
         />

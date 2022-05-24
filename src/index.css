@@ -98,3 +98,8 @@ width: 250px;
   width: 250px;
   border-color: black;
 }
+#tick{
+  margin-left: 10px;
+  color: blue;
+  font-size: larger;
+}

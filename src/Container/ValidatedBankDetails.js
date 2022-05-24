@@ -9,7 +9,7 @@ const ValidatedBankDetails = () => (
     initialValues={{ AccountNumber: "", AccNumber: "", Ifsc: "" }}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
-        console.log("Logging in", values);
+        console.log("Submitting", values);
         setSubmitting(false);
       }, 500);
     }}
@@ -46,7 +46,6 @@ const ValidatedBankDetails = () => (
     //********Using Yum for validation********/
 
     validationSchema={Yup.object().shape({
-      email: Yup.string().email().required("Required"),
       AccNumber: Yup.string()
         .required("No AccNumber provided.")
         .min(8, "AccNumber is too short - should be 10 digits minimum.")
@@ -163,7 +162,7 @@ const ValidatedBankDetails = () => (
             </div>
             <br />
             <button type="submit" disabled={isSubmitting}>
-              <Link to="/" style={{ textDecoration: "none", color: "White" }}>
+              <Link to="/successfulregistration" style={{ textDecoration: "none", color: "White" }}>
                 Submit
               </Link>
             </button>
