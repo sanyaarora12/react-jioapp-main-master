@@ -9,7 +9,7 @@ const ValidatedBankDetails = () => (
     initialValues={{ AccountNumber: "", AccNumber: "", Ifsc: "" }}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
-        console.log("Logging in", values);
+        console.log("Submitting", values);
         setSubmitting(false);
       }, 500);
     }}
@@ -46,7 +46,6 @@ const ValidatedBankDetails = () => (
     //********Using Yum for validation********/
 
     validationSchema={Yup.object().shape({
-      email: Yup.string().email().required("Required"),
       AccNumber: Yup.string()
         .required("No AccNumber provided.")
         .min(8, "AccNumber is too short - should be 10 digits minimum.")
@@ -108,22 +107,14 @@ const ValidatedBankDetails = () => (
               )}
             </div>
             <br />
-            <div class="dropdown">
-              <button
-                class="btn btn dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                required
-              >
-                Please select Bank name
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
-              </ul>
+            <div class="mb-3" id="dropdown">
+            <select class="form-select" required aria-label="select example">
+            <option value="">Select your Bank Name</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            </select>
+            <div class="invalid-feedback">Example invalid select feedback</div>
             </div>
             <div>
               <label htmlFor="email">IFSC Code</label>
@@ -171,7 +162,7 @@ const ValidatedBankDetails = () => (
             </div>
             <br />
             <button type="submit" disabled={isSubmitting}>
-              <Link to="/" style={{ textDecoration: "none", color: "White" }}>
+              <Link to="/successfulregistration" style={{ textDecoration: "none", color: "White" }}>
                 Submit
               </Link>
             </button>
