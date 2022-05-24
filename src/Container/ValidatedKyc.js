@@ -60,8 +60,7 @@ const ValidatedKyc = () => (
       return (
         <>
           <Button />
-
-          <br />
+          <h1>Personal Details</h1>
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="text">Pan Number</label>
@@ -81,7 +80,6 @@ const ValidatedKyc = () => (
                 <div className="input-feedback">{errors.PanNumber}</div>
               )}
             </div>
-            <br />
             <div>
               <label htmlFor="number">Adhaar Number</label>
               <br />
@@ -102,16 +100,25 @@ const ValidatedKyc = () => (
                 <div className="input-feedback">{errors.Adhaarnumber}</div>
               )}
             </div>
-
-            <br />
+            <div class="mb-3" id="a">
+                <label for="formFileSm" class="form-label">
+                  Upload Aadhaar Card
+                </label>
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                  required
+                />
+              </div>
             <div>
-              <label htmlFor="text">Pan Number</label>
+              <label htmlFor="text">GST Number</label>
               <br />
               <input
                 id="placeholder"
                 name="GSTNumber"
                 type="GSTNumber"
-                placeholder="Enter your Pan number"
+                placeholder="Enter your GST number"
                 value={values.GSTNumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -122,20 +129,7 @@ const ValidatedKyc = () => (
                 <div className="input-feedback">{errors.GSTNumber}</div>
               )}
             </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="invalidCheck"
-                required
-              />
-              <label className="form-check-label" for="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div className="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
+            <br />
             <button type="submit" disabled={isSubmitting}>
               <Link
                 to="/validatedbankdetails"

@@ -9,6 +9,7 @@ export class KycPage extends React.Component {
       Adhaarnumber: "",
       GSTNumber: "",
     };
+}
     
 
   render() {
