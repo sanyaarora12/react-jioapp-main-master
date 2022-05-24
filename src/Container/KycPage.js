@@ -34,7 +34,7 @@ export class KycPage extends React.Component {
       <div className="K">
         <KycStyle />
         <form onSubmit={this.handleSubmit}>
-          <label>PanNumber</label>
+          <label htmlFor="input">PanNumber</label>
           <input
             name="PanNumber"
             type="text"
@@ -65,7 +65,7 @@ export class KycPage extends React.Component {
             </div>
           </div>
           <br /> <br />
-          <label>Adhaar number</label>
+          <label htmlFor="input">Adhaar number</label>
           <input
             name="Adhaar number"
             type="text"
@@ -74,7 +74,7 @@ export class KycPage extends React.Component {
             onChange={this.handleChange}
           />
           <br /> <br />
-          <label>GSTNumber</label>
+          <label htmlFor="input">GSTNumber</label>
           <input
             name="GSTNumber"
             type="text"
@@ -103,3 +103,4 @@ export class KycPage extends React.Component {
     console.log(this.state);
   };
 }
+export default KycPage;
