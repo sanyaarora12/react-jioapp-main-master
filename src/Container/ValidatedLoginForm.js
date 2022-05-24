@@ -119,25 +119,28 @@ const ValidatedLoginForm = () => (
               {errors.shopname && touched.shopname && (
                 <div className="input-feedback">{errors.shopname}</div>
               )}
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="invalidCheck"
-                    required
-                  />
-                  <label className="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                  </label>
-                  <div className="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="invalidCheck"
+                  required
+                />
+                <label className="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div className="invalid-feedback">
+                  You must agree before submitting.
                 </div>
               </div>
+            </div>
+
+            {/* <label>Shop name</label>
+          <input type="text" placeholder="Enter your shop name"/> */}
             <br />
             <button type="submit" disabled={isSubmitting}>
               <Link
-                to="/otp"
+                to="/Otp"
                 style={{ textDecoration: "none", color: "White" }}
               >
                 Login
