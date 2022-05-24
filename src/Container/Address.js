@@ -7,12 +7,14 @@ export class Address extends React.Component {
     super(props);
     this.state = {
       PinCode: "",
-      Address: "",
+      AddressLine1: "",
+      AddressLine2: "",
+      City: "",
     };
   }
 
   render() {
-    const { PinCode, Address } = this.state;
+    const { PinCode, AddressLine1, AddressLine2, City } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <KycStyle />
@@ -20,10 +22,11 @@ export class Address extends React.Component {
           <h1>Address Verification</h1>
           <br />
           <br />
-          <label htmlFor="number">PinCode</label>
+          <label>PinCode</label>
           <input
             name="PinCode"
             type="number"
+            maxlength="6"
             placeholder="Enter your PinCode"
             value={PinCode}
             onChange={this.handleChange}
@@ -78,14 +81,32 @@ export class Address extends React.Component {
             <div class="invalid-feedback"> invalid </div>
           </div>
           <br />
-          <label htmlFor="email">Address</label>
+          <label htmlFor="email">Address Line 1</label>
           <input
-            name="Address"
-            type="Address"
-            placeholder="Enter your Address"
+            name="AddressLine1"
+            type="text"
             required
-            value={Address}
+            value={AddressLine1}
             onChange={this.handleChange}
+          />
+          <br />
+          <br />
+          <label htmlFor="email">Address Line 2</label>
+          <input
+            name="AddressLine2"
+            type="text"
+            value={AddressLine2}
+            onChange={this.handleChange}
+          />
+          <br />
+          <br />
+          <label htmlFor="email">City</label>
+          <input
+            name="City"
+            type="text"
+            value={City}
+            onChange={this.handleChange}
+            required
           />
           <br />
           <br />
