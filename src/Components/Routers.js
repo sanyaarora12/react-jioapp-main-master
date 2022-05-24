@@ -6,6 +6,7 @@ import Terms from "../Container/Terms";
 import ValidatedLoginForm from "../Container/ValidatedLoginForm";
 import { LoginForm } from "../Container/LoginForm";
 import KycPage from "../Container/KycPage";
+import ValidatedKyc from "../Container/ValidatedKyc";
 import Otp from "../Container/Otp";
 import { BankDetails } from "../Container/BankDetails";
 import ValidatedBankDetails from "../Container/ValidatedBankDetails";
@@ -22,6 +23,7 @@ export default function Routers() {
           <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
           <Route path="/LoginForm" element={<LoginForm />} />
           <Route path="/KycPage" element={<KycPage />} />
+          <Route path="/ValidatedKyc" element={<ValidatedKyc />} />
           <Route path="/otp" element={<Otp />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route path="/validatedbankdetails" element={<ValidatedBankDetails />} />
