@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export class KycPage extends React.Component {
   constructor(props) {
@@ -21,7 +22,11 @@ export class KycPage extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit">
+          <Link to="/validatedbankdetails">
+          Submit
+          </Link>
+          </button>
       </form>
     );
   }
@@ -37,3 +42,5 @@ export class KycPage extends React.Component {
     console.log(this.state);
   };
 }
+
+export default KycPage;

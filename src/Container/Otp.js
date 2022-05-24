@@ -49,6 +49,14 @@ export default function Otp() {
           >
             Submit
           </Link>
+        </button><br />
+        <button type="button" className="btn btn-primary btn-lg">
+          <Link
+            to="/KycPage"
+            style={{ textDecoration: "none", color: "White" }}
+          >
+            Resend OTP
+          </Link>
         </button>
       </div>
     </>
