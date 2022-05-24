@@ -15,14 +15,13 @@ const ValidatedKyc = () => (
     //********Handling validation messages yourself*******/
     validate={(values) => {
       let errors = {};
-      
 
       const PanNumberRegex = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
       if (!values.PanNumber) {
         errors.PanNumber = "Required";
       } else if (values.PanNumber.length === 11) {
         errors.PanNumber = "Pan number must be 10 characters only.";
-      }else if (!PanNumberRegex.test(values.PanNumber)) {
+      } else if (!PanNumberRegex.test(values.PanNumber)) {
         errors.PanNumber = "Invalid PanNumber ";
       }
       const AdhaarnumberRegex = /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$/;
@@ -30,7 +29,7 @@ const ValidatedKyc = () => (
         errors.Adhaarnumber = "Required";
       } else if (values.Adhaarnumber.length === 13) {
         errors.Adhaarnumber = "Adhaar number must be 12 characters only.";
-      }else if (!AdhaarnumberRegex.test(values.Adhaarnumber)) {
+      } else if (!AdhaarnumberRegex.test(values.Adhaarnumber)) {
         errors.Adhaarnumber = "Invalid Aadhar ";
       }
 
@@ -40,7 +39,7 @@ const ValidatedKyc = () => (
         errors.GSTNumber = "Required";
       } else if (values.GSTNumber.length === 16) {
         errors.GSTNumber = "GST number must be 15 characters only.";
-      }else if (!GSTNumberRegex.test(values.GSTNumber)) {
+      } else if (!GSTNumberRegex.test(values.GSTNumber)) {
         errors.GSTNumber = "Invalid GSTNumber ";
       }
 
@@ -80,6 +79,17 @@ const ValidatedKyc = () => (
                 <div className="input-feedback">{errors.PanNumber}</div>
               )}
             </div>
+            <div class="mb-3" id="a">
+              <label for="formFileSm" class="form-label">
+                Upload Pan Card
+              </label>
+              <input
+                class="form-control form-control-sm"
+                id="formFileSm"
+                type="file"
+                required
+              />
+            </div>
             <div>
               <label htmlFor="number">Adhaar Number</label>
               <br />
@@ -87,7 +97,7 @@ const ValidatedKyc = () => (
                 id="placeholder"
                 name="Adhaarnumber"
                 type="Adhaarnumber"
-                placeholder="Enter your Account number"
+                placeholder="Enter your Adhaar number"
                 value={values.Adhaarnumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -101,16 +111,16 @@ const ValidatedKyc = () => (
               )}
             </div>
             <div class="mb-3" id="a">
-                <label for="formFileSm" class="form-label">
-                  Upload Aadhaar Card
-                </label>
-                <input
-                  class="form-control form-control-sm"
-                  id="formFileSm"
-                  type="file"
-                  required
-                />
-              </div>
+              <label for="formFileSm" class="form-label">
+                Upload Aadhaar Card
+              </label>
+              <input
+                class="form-control form-control-sm"
+                id="formFileSm"
+                type="file"
+                required
+              />
+            </div>
             <div>
               <label htmlFor="text">GST Number</label>
               <br />
@@ -132,7 +142,7 @@ const ValidatedKyc = () => (
             <br />
             <button type="submit" disabled={isSubmitting}>
               <Link
-                to="/validatedbankdetails"
+                to="/Address"
                 style={{ textDecoration: "none", color: "White" }}
               >
                 Submit
