@@ -23,6 +23,7 @@ export default function Otp() {
           separator={<span style={{ width: "8px" }}></span>}
           isInputNum={true}
           shouldAutoFocus={true}
+          required
           inputStyle={{
             boxShadow: "1px 3px 1px blue",
             border: "1px solid transparent ",
