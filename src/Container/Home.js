@@ -12,7 +12,7 @@ export class Home extends Component {
         <h1>Welcome to JioPos Lite</h1>
         <br />
         <button type="button" className="btn btn-primary btn-lg">
-          <Link to="/header" style={{ textDecoration: "none", color: "White" }}>
+          <Link to="/form" style={{ textDecoration: "none", color: "White" }}>
             Login
           </Link>
         </button>
