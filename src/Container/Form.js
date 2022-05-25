@@ -1,15 +1,5 @@
-// import React from 'react';
-
-
-// function Form() {
-//   return (
-//     <div>Form</div>
-//   )
-// }
-
-// export default Form;
-
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -50,6 +40,7 @@ export default function SignInSide() {
   };
 
   return (
+      <div>
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -59,7 +50,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://www.solidbackgrounds.com/images/2560x1440/2560x1440-blue-solid-color-background.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -77,9 +68,13 @@ export default function SignInSide() {
               alignItems: 'center',
             }}
           >
+              <div className="a">
+             <h1>Welcome to JioPos Lite</h1>
+                 </div>
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
+            
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -123,9 +118,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
+                <NavLink to="/form2">{"Don't have an account? Sign Up"} </NavLink> 
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />
@@ -134,5 +127,10 @@ export default function SignInSide() {
         </Grid>
       </Grid>
     </ThemeProvider>
+    </div>
   );
 }
+
+
+
+

@@ -12,7 +12,8 @@ import Otp from "../Container/Otp";
 import { BankDetails } from "../Container/BankDetails";
 import ValidatedBankDetails from "../Container/ValidatedBankDetails";
 import SuccessfulRegistration from "../Container/SuccessfulRegistration";
-import  Form  from "../Container/Form"; ;
+import  Form  from "../Container/Form";
+import  Form2  from "../Container/Form2"; 
 
 export default function Routers() {
   return (
@@ -21,6 +22,7 @@ export default function Routers() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/form" element={<Form />} />
+          <Route exact path="/form2" element={<Form2 />} />
           <Route path="/header" element={<Header />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
