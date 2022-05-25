@@ -28,6 +28,7 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
+const avatarStyle={backgroundColor:'blue'}
 
 export default function SignInSide() {
   const handleSubmit = (event) => {
@@ -71,7 +72,7 @@ export default function SignInSide() {
               <div className="a">
              <h1>Welcome to JioPos Lite</h1>
                  </div>
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             
