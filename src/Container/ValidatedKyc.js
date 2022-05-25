@@ -24,7 +24,7 @@ const ValidatedKyc = () => (
       } else if (!PanNumberRegex.test(values.PanNumber)) {
         errors.PanNumber = "Invalid PanNumber ";
       }
-      const AdhaarnumberRegex = /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$/;
+      const AdhaarnumberRegex = /^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{2}$/;
       if (!values.Adhaarnumber) {
         errors.Adhaarnumber = "Required";
       } else if (values.Adhaarnumber.length === 13) {
