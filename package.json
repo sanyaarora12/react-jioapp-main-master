@@ -5,9 +5,18 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+<<<<<<< HEAD
+    "@material-ui/core": "^4.12.4",
+    "@mui/base": "^5.0.0-alpha.82",
+    "@mui/icons-material": "^5.8.0",
+    "@mui/material": "^5.8.1",
+    "@mui/styled-engine-sc": "^5.8.0",
+    "@mui/system": "^5.8.1",
+=======
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.1",
     "@mui/styles": "^5.8.0",
+>>>>>>> d286764e2cf5f8fcae171fae424b3fbae54fd624
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
