@@ -12,7 +12,8 @@ import Otp from "../Container/Otp";
 import { BankDetails } from "../Container/BankDetails";
 import ValidatedBankDetails from "../Container/ValidatedBankDetails";
 import SuccessfulRegistration from "../Container/SuccessfulRegistration";
-import  Form  from "../Container/Form"; ;
+import Form from "../Container/Form";
+import Kycform from "../Container/KycForm";
 
 export default function Routers() {
   return (
@@ -29,6 +30,7 @@ export default function Routers() {
           <Route path="/ValidatedKyc" element={<ValidatedKyc />} />
           <Route path="/Address" element={<Address />} />
           <Route path="/otp" element={<Otp />} />
+          <Route path="/Kycform" element={<Kycform />} />
           <Route path="/bankdetails" element={<BankDetails />} />
           <Route
             path="/validatedbankdetails"

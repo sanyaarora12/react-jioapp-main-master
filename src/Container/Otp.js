@@ -45,7 +45,7 @@ export default function Otp() {
         <br />
         <button type="button" className="btn btn-primary btn-lg">
           <Link
-            to="/validatedkyc"
+            to="/kycform"
             style={{ textDecoration: "none", color: "White" }}
           >
             Submit
