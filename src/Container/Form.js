@@ -118,7 +118,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                <NavLink to="/form2">{"Don't have an account? Sign Up"} </NavLink> 
+                <NavLink to="/form3">{"Don't have an account? Sign Up"} </NavLink> 
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />
