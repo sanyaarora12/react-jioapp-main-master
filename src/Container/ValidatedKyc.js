@@ -80,6 +80,17 @@ const ValidatedKyc = () => (
                 <div className="input-feedback">{errors.PanNumber}</div>
               )}
             </div>
+            <div class="mb-3" id="a">
+                <label for="formFileSm" class="form-label">
+                  Upload Pan Card
+                </label>
+                <input
+                  class="form-control form-control-sm"
+                  id="formFileSm"
+                  type="file"
+                  required
+                />
+              </div>
             <div>
               <label htmlFor="number">Adhaar Number</label>
               <br />
