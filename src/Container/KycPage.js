@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import KycStyle from "../Components/KycStyle";
 
 export class KycPage extends React.Component {
   constructor(props) {
@@ -9,13 +10,14 @@ export class KycPage extends React.Component {
       Adhaarnumber: "",
       GSTNumber: "",
     };
-}
-    
+  }
 
   render() {
     const { PanNumber, Adhaarnumber, GSTNumber } = this.state;
     return (
-        <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
+        <KycStyle />
+        <div classname="k">
           <label>PanNumber</label>
           <input
             name="PanNumber"
@@ -25,7 +27,6 @@ export class KycPage extends React.Component {
             value={PanNumber}
             onChange={this.handleChange}
           />
-
           <label>Adhaar number</label>
           <input
             name="Adhaar number"
@@ -44,25 +45,24 @@ export class KycPage extends React.Component {
             onChange={this.handleChange}
           />
           <br /> <br />
-          
           <button type="submit">
-            <Link to="/Validatedbankdetails">Submit</Link>
+            <Link to="/Address">Submit</Link>
           </button>
-        </form>
+        </div>
+      </form>
     );
- }
+  }
 
-    handleChange = event => {
-        this.setState({
-          [event.target.name]: event.target.value
-        });
-      };
-    
-      handleSubmit = event => {
-        console.log("Submitting");
-        console.log(this.state);
-      };
-    }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    console.log("Submitting");
+    console.log(this.state);
+  };
+}
 
 export default KycPage;
-
