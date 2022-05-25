@@ -51,7 +51,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://www.solidbackgrounds.com/images/2560x1440/2560x1440-blue-solid-color-background.jpg)',
+            backgroundImage: 'url(https://wallpaperaccess.com/full/2758365.png)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
