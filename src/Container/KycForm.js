@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Grid,
@@ -55,7 +56,12 @@ export default function App() {
                     Reset
                   </Button>
                   <Button type="submit" variant="contained" color="primary">
-                    Submit
+                    <Link
+                      to="/SuccessfulRegistration"
+                      style={{ textDecoration: "none", color: "White" }}
+                    >
+                      Submit
+                    </Link>
                   </Button>
                 </Grid>
               </Grid>

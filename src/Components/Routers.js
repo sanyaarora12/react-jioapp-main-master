@@ -10,6 +10,7 @@ import ValidatedBankDetails from "../Container/ValidatedBankDetails";
 import SuccessfulRegistration from "../Container/SuccessfulRegistration";
 import Form from "../Container/Form";
 import Kycform from "../Container/KycForm";
+import Form3 from "../Container/Form3";
 
 export default function Routers() {
   return (
@@ -23,10 +24,10 @@ export default function Routers() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
           <Route path="/LoginForm" element={<LoginForm />} />
-          
+
           <Route path="/otp" element={<Otp />} />
           <Route path="/Kycform" element={<Kycform />} />
-          
+
           <Route
             path="/validatedbankdetails"
             element={<ValidatedBankDetails />}

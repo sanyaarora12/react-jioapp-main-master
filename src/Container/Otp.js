@@ -54,7 +54,7 @@ export default function Otp() {
         <br />
         <button type="button" className="btn btn-primary btn-lg">
           <Link
-            to="/ValidatedLoginForm"
+            to="/KycForm"
             style={{ textDecoration: "none", color: "White" }}
           >
             Resend OTP
