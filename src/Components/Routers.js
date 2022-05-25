@@ -9,6 +9,7 @@ import Otp from "../Container/Otp";
 import ValidatedBankDetails from "../Container/ValidatedBankDetails";
 import SuccessfulRegistration from "../Container/SuccessfulRegistration";
 import Form from "../Container/Form";
+
 import Kycform from "../Container/KycForm";
 import Form3 from "../Container/Form3";
 
