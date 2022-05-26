@@ -1,11 +1,12 @@
 import React from "react";
-import { Grid, Paper, TextField } from "@mui/material";
+import { Grid, Paper} from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import FormStyles from "../Components/FormStyles";
 
 const Form3 = () => {
   const paperStyle = {
@@ -24,31 +25,17 @@ const Form3 = () => {
           </Avatar>
           <h2>Sign up</h2>
         </Grid>
-        <div>
-          <TextField
-            label="Enter your email id"
-            placeholder="Email"
-            fullWidth
-            required
-          />
+        <div className="email">
+          <FormStyles />
+          <input type="text" placeholder="Enter your email id" />
         </div>
         <br />
         <div>
-          <TextField
-            label="Enter your Phone number"
-            placeholder="Phone number"
-            fullWidth
-            required
-          />
+        <input type="text" placeholder="Enter your Phone number" />
         </div>
         <br />
         <div>
-          <TextField
-            label="Shop Name"
-            placeholder="Shop Name"
-            fullWidth
-            required
-          />
+        <input type="text" placeholder="Enter your Shop name" />
         </div>
         <br />
         <FormControlLabel

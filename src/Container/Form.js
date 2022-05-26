@@ -114,16 +114,6 @@ export default function SignInSide() {
                   autoComplete="email"
                   autoFocus
                 />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
@@ -139,7 +129,7 @@ export default function SignInSide() {
                 <Grid container>
                   <Grid item xs>
                     <Link href="#" variant="body2">
-                      Forgot password?
+                      Login for Approvers
                     </Link>
                   </Grid>
                   <Grid item>
@@ -157,3 +147,4 @@ export default function SignInSide() {
     </div>
   );
 }
+
