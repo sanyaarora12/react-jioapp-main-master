@@ -18,6 +18,7 @@ export const inputFormElements = (register, errors) => [
   {
     name: "panimg",
     type: "file",
+    label: "Pan Card",
     variant: "outlined",
     fullWidth: true,
     //hidden: true,
@@ -54,7 +55,7 @@ export const inputFormElements = (register, errors) => [
     required: "true",
   },
   {
-    name: "adhaarimg",
+    name: "adhaarimg2",
     type: "file",
     label: "AdhaarBack",
     variant: "outlined",
