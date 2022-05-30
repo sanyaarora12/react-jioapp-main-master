@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
-  
+
   return (
     <Typography
       variant="body2"
@@ -34,7 +34,7 @@ function Copyright(props) {
 }
 
 const theme = createTheme();
-const avatarStyle = { backgroundColor: "blue" };
+const avatarStyle = { backgroundColor: "#0384fc" };
 
 export default function SignInSide() {
   const handleSubmit = (event) => {
@@ -134,7 +134,7 @@ export default function SignInSide() {
                     </Link>
                   </Grid>
                   <Grid item>
-                    <NavLink to="/roughform">
+                    <NavLink to="/form3">
                       {"Don't have an account? Sign Up"}{" "}
                     </NavLink>
                   </Grid>
