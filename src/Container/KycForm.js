@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Paper } from "@mui/material";
+import { useForm } from "react-hook-form";
 import {
   Grid,
   TextField,
@@ -10,17 +11,28 @@ import {
   Typography,
 } from "@material-ui/core";
 import { inputFormElements } from "./KformElement";
+
 const paperStyle = {
   padding: 20,
   height: "120vh",
   width: 700,
   margin: "20px auto",
 };
+
 export default function App() {
   const margin = { margin: "0 5px" };
+  const {
+    handleSubmit,
+    onSubmit,
+    // formState: { errors },
+  } = useForm();
+
   return (
     <div className="App">
-      <Grid style={{ padding: "80px 5px 0 5px" }}>
+      <Grid
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ padding: "80px 5px 0 5px" }}
+      >
         <Paper elevation={10} style={paperStyle}>
           <Card style={{ maxWidth: 600, margin: "0 auto" }}>
             <CardContent>
