@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
+  
   return (
     <Typography
       variant="body2"
