@@ -1,74 +1,178 @@
 import React from "react";
-import { Grid, Paper } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
-import FormStyles from "../Components/FormStyles";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import { TextField } from "@mui/material";
 
 
-function RoughForm() {
-      
-const paperStyle = {padding: 20,height: "70vh", width: 300, margin: "20px auto"};
-  const avatarStyle = { backgroundColor: "#0384fc" };
-  return (
-    <Grid>
-      <Paper elevation={10} style={paperStyle}>
-        <Grid align="center">
-          <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <AccountBoxIcon />
-          </Avatar>
-          <h2>Sign up</h2>
-        </Grid>
-        <div className="email">
-          <FormStyles />
-          <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="Phonenumber"
-                  label="Phone number"
-                  name="Phone number"
-                  autoComplete="Phone number"
-                  autoFocus
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="Phonenumber"
-                  label="Shop name"
-                  name="Shop name"
-                  autoComplete="Shop name"
-                  autoFocus
-                />
-                </div>
-        <FormControlLabel
-          control={<Checkbox />}
-          label="Agree to terms and conditions"
-        />
-        <br />
-        <Button type="submit" color="primary" variant="contained" fullWidth>
-          <Link to="/otp" style={{ textDecoration: "none", color: "White" }}>
-            Submit
-          </Link>
-        </Button>
-      </Paper>
-    </Grid>
+const txtFieldState = {
+  value: "",
+  valid: true,
+  typeMismatch: false,
+  errMsg: "" //this is where our error message gets across
+};
+
+const ErrorValidationLabel = ({ txtLbl }) => (
+  <label htmlFor="" style={{ color: "red" }}>
+    {txtLbl}
+  </label>
+);
+
+const Field = ({
+  valid,
+  type,
+  fieldId,
+  fieldName,
+  typeMismatch,
+  formatErrorTxt,
+  requiredTxt
+}) => {
+  const renderErrorLabel = !valid ? (
+    <ErrorValidationLabel
+      txtLbl={typeMismatch ? formatErrorTxt : requiredTxt}
+    />
+  ) : (
+    ""
   );
+
+  return (
+    <>
+      <input type={type} name={fieldId} placeholder={fieldName} required />
+      <br />
+      {renderErrorLabel}
+      <br />
+    </>
+  );
+};
+
+class App extends React.Component {
+  state = {
+    email: {
+      ...txtFieldState,
+      fieldName: "Email",
+      required: true,
+      requiredTxt: "Email is required",
+      formatErrorTxt: "Incorrect email format",
+      type: "email"
+    },
+    firstname: {
+      ...txtFieldState,
+      fieldName: "First Name",
+      required: true,
+      requiredTxt: "First Name is required",
+      type: "text"
+    },
+    lastname: {
+      ...txtFieldState,
+      fieldName: "Last Name",
+      required: false,
+      requiredTxt: "Last Name is required",
+      type: "text"
+    },
+    allFieldsValid: false
+  };
+
+  reduceFormValues = formElements => {
+    const arrElements = Array.prototype.slice.call(formElements); //we convert elements/inputs into an array found inside form element
+
+    //we need to extract specific properties in Constraint Validation API using this code snippet
+    const formValues = arrElements
+      .filter(elem => elem.name.length > 0)
+      .map(x => {
+        const { typeMismatch } = x.validity;
+        const { name, type, value } = x;
+
+        return {
+          name,
+          type,
+          typeMismatch, //we use typeMismatch when format is incorrect(e.g. incorrect email)
+          value,
+          valid: x.checkValidity()
+        };
+      })
+      .reduce((acc, currVal) => {
+        //then we finally use reduce, ready to put it in our state
+        const { value, valid, typeMismatch} = currVal;
+        const { fieldName, requiredTxt, formatErrorTxt } = this.state[
+          currVal.name
+        ]; //get the rest of properties inside the state object
+
+        //we'll need to map these properties back to state so we use reducer...
+        acc[currVal.name] = {
+          value,
+          valid,
+          typeMismatch,
+          fieldName,
+          requiredTxt,
+          formatErrorTxt
+        };
+
+        return acc;
+      }, {});
+
+    return formValues;
+  };
+
+  checkAllFieldsValid = formValues => {
+    return !Object.keys(formValues)
+      .map(x => formValues[x])
+      .some(field => !field.valid);
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+
+    //we need to extract specific properties in Constraint Validation API using this code snippet
+    const formValues = this.reduceFormValues(form.elements);
+    const allFieldsValid = this.checkAllFieldsValid(formValues);
+    //note: put ajax calls here to persist the form inputs in the database.
+
+    //END
+
+    this.setState({ ...formValues, allFieldsValid }); //we set the state based on the extracted values from Constraint Validation API
+  };
+
+  mapFieldInputs = () => {
+    //we filter out `allFieldsValid` property as this is not included state for our input fields
+    return Object.keys(this.state)
+      .filter(x => x !== "allFieldsValid")
+      .map(field => {
+        return {
+          fieldId: field,
+          ...this.state[field]
+        };
+      });
+  };
+
+  render() {
+    const { allFieldsValid } = this.state;
+    const successFormDisplay = allFieldsValid ? "block" : "none";
+    const inputFormDisplay = !allFieldsValid ? "block" : "none";
+    const fields = this.mapFieldInputs();
+
+    const renderFields = fields.map(x => <Field {...x} />);
+
+    return (
+      <>
+        <div style={{ display: successFormDisplay }}>
+          <h1 style={{ textAlign: "center" }}>Success!</h1>
+          <p style={{ textAlign: "center" }}>
+            You have successfully submitted a form.
+          </p>
+        </div>
+
+        <div className="form-input" style={{ display: inputFormDisplay }}>
+          <h1 style={{ textAlign: "center" }}>React / HTML5 Form Validation</h1>
+          <form
+            className="form-inside-input"
+            onSubmit={this.onSubmit}
+            noValidate
+          >
+            {renderFields}
+
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </>
+    );
+  }
 }
 
-export default RoughForm;
+export default App;
