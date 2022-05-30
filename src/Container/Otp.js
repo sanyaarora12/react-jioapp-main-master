@@ -1,16 +1,21 @@
 import React from "react";
+import { Paper } from "@mui/material";
 import { Link } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import OtpStyle from "../Components/OtpStyle";
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 export default function Otp() {
   const [code, setCode] = useState("");
   const handleChange = (code) => setCode(code);
 
+  const paperStyle = {padding: 20,height: "80vh", width: 500, margin: "20px auto"};
+
   return (
     <>
       <OtpStyle />
+      <Paper elevation={10} style={paperStyle}>
       <div className="container">
         <h3>
           Otp has been sent successfully.
@@ -25,8 +30,8 @@ export default function Otp() {
           shouldAutoFocus={true}
           required={true}
           inputStyle={{
-            boxShadow: "1px 3px 1px blue",
-            border: "1px solid transparent ",
+            boxShadow: "1px 3px 1px #0384fc",
+            border: "1px ",
             borderRadius: "8px",
             width: "54px",
             height: "54px",
@@ -36,31 +41,27 @@ export default function Otp() {
             caretColor: "blue",
           }}
           focusStyle={{
-            border: "1px solid #CFD3DB",
+            border: "1px solid #0384fc",
             outline: "none",
           }}
         />
         <br />
         <br />
         <br />
-        <button type="button" className="btn btn-primary btn-lg">
-          <Link
-            to="/kycform"
-            style={{ textDecoration: "none", color: "White" }}
-          >
+        <Button type="submit" color="primary" variant="contained" >
+          <Link to="/kycform" style={{ textDecoration: "none", color: "White" }}>
             Submit
           </Link>
-        </button>
+        </Button>
         <br />
-        <button type="button" className="btn btn-primary btn-lg">
-          <Link
-            to="/KycForm"
-            style={{ textDecoration: "none", color: "White" }}
-          >
+        <Button type="submit" color="primary" variant="contained" >
+          <Link to="/form3" style={{ textDecoration: "none", color: "White" }}>
             Resend OTP
           </Link>
-        </button>
+        </Button>
+        
       </div>
+      </Paper>
     </>
   );
 }

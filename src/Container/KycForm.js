@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
   Typography,
+  
 } from "@material-ui/core";
 import { inputFormElements } from "./KformElement";
 
@@ -27,10 +28,12 @@ export default function App() {
     formState: { errors },
   } = useForm();
 
+
   return (
     <div className="App">
       <Grid style={{ padding: "80px 5px 0 5px" }}>
         <Paper elevation={10} style={paperStyle}>
+        
           <Card style={{ maxWidth: 600, margin: "0 auto" }}>
             <CardContent>
               <Typography variant="h4" color="primary">
@@ -82,6 +85,7 @@ export default function App() {
                         Submit
                       </Link>
                     </Button>
+                    
                   </Grid>
                 </Grid>
               </form>
