@@ -25,16 +25,13 @@ export default function App() {
   const {
     handleSubmit,
     onSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm();
 
 
   return (
     <div className="App">
-      <Grid
-        onSubmit={handleSubmit(onSubmit)}
-        style={{ padding: "80px 5px 0 5px" }}
-      >
+      <Grid style={{ padding: "80px 5px 0 5px" }}>
         <Paper elevation={10} style={paperStyle}>
         
           <Card style={{ maxWidth: 600, margin: "0 auto" }}>
@@ -45,7 +42,7 @@ export default function App() {
               <Typography variant="subtitle1" color="textSecondary">
                 Fill all the mandatory fields to create an account.
               </Typography>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <Typography variant="body2" align="left" gutterBottom>
                   Kyc Info :{" "}
                 </Typography>
