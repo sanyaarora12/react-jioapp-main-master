@@ -69,7 +69,6 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-
     required: "Required field",
     pattern: {
       value: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}?/i,
@@ -85,9 +84,15 @@ export const inputFormElements = (register, errors) => [
     label: "AccNumber",
     variant: "outlined",
     fullWidth: true,
-    required: "Required field",
     xs: 12,
     sm: 12,
+    inputRef: { required: true },
+    pattern: {
+      value: /^[0-9]{9,18}?/i,
+      message: "Invalid Account Number",
+    },
+    errors: !!errors?.AccNumber,
+    helperText: errors?.AccNumber ? errors.AccNumber.message : null,
   },
   {
     name: "ConfirmAccNumber",
@@ -96,6 +101,13 @@ export const inputFormElements = (register, errors) => [
     label: "ConfirmAccNumber",
     variant: "outlined",
     fullWidth: true,
+    pattern: {
+      value: /^[0-9]{9,18}?/i,
+    },
+    inputRef: {
+      validate: (value) => value === AccNumber || "Invalid Account Number",
+    },
+
     xs: 12,
     sm: 12,
     required: "Required field",
