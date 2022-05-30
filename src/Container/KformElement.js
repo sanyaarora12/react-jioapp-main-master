@@ -1,5 +1,9 @@
 export const inputFormElements = [
   {
+    formState: { errors },
+  } 
+  
+  {
     name: "PanNumber",
     placeholder: "Enter pan number",
     label: "PanNumber",
@@ -12,6 +16,9 @@ export const inputFormElements = [
       value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/i,
       message: "Invalid Pan Number",
     },
+
+            error:errors?.PanNumber,
+            helperText:errors?.PanNumber ? errors.PanNumber.message : null,
   },
   {
     name: "AdhaarNumber",
