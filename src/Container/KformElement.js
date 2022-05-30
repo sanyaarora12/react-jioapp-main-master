@@ -1,8 +1,7 @@
-export const inputFormElements = [
+export const inputFormElements = (errors) => [
   {
     formState: { errors },
-  } 
-  
+  },
   {
     name: "PanNumber",
     placeholder: "Enter pan number",
@@ -17,8 +16,8 @@ export const inputFormElements = [
       message: "Invalid Pan Number",
     },
 
-            error:errors?.PanNumber,
-            helperText:errors?.PanNumber ? errors.PanNumber.message : null,
+    error: errors?.PanNumber,
+    helperText: errors?.PanNumber ? errors.PanNumber.message : null,
   },
   {
     name: "AdhaarNumber",
