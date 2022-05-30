@@ -18,8 +18,8 @@ export default function Routers() {
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Form />} />
-          <Route exact path="/roughform" element={<RoughForm />} />
+          <Route exact path="/form" element={<Form />} />
+          <Route exact path="/" element={<RoughForm />} />
           <Route exact path="/form" element={<Form />} />
           <Route exact path="/form3" element={<Form3 />} />
           <Route path="/header" element={<Header />} />

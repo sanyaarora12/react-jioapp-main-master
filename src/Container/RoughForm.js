@@ -1,72 +1,21 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FormErrors } from './FormErrors';
+import React from "react";
 import { Grid, Paper } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
+import FormStyles from "../Components/FormStyles";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import RoughFormStyles from '../Components/RoughFormStyles';
+import { TextField } from "@mui/material";
 
-class Form extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      email: '',
-      Phonenumber: '',
-      formErrors: {email: '', Phonenumber: ''},
-      emailValid: false,
-      PhonenumberValid: false,
-      formValid: false
-    }
-  }
-
-  handleUserInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState({[name]: value},
-                  () => { this.validateField(name, value) });
-  }
-
-  validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let emailValid = this.state.emailValid;
-    let PhonenumberValid = this.state.PhonenumberValid;
-
-    switch(fieldName) {
-      case 'email':
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? '' : ' is invalid';
-        break;
-      case 'Phonenumber':
-        PhonenumberValid = value.length >= 6;
-        fieldValidationErrors.Phonenumber = PhonenumberValid ? '': ' is too short';
-        break;
-      default:
-        break;
-    }
-    this.setState({formErrors: fieldValidationErrors,
-                    emailValid: emailValid,
-                    PhonenumberValid: PhonenumberValid,
-                  }, this.validateForm);
-  }
-
-  validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.PhonenumberValid});
-  }
-
-  errorClass(error) {
-    return(error.length === 0 ? '' : 'has-error');
-  }
-  
-
-  render () {
-    const paperStyle = {padding: 20,height: "70vh", width: 300, margin: "20px auto"};
-  const avatarStyle = { backgroundColor: "blue" };
+function RoughForm() {
       
-    return (
-      <Grid>
-      <form>
+const paperStyle = {padding: 20,height: "70vh", width: 300, margin: "20px auto"};
+  const avatarStyle = { backgroundColor: "#0384fc" };
+  return (
+    <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -74,39 +23,52 @@ class Form extends Component {
           </Avatar>
           <h2>Sign up</h2>
         </Grid>
-        <RoughFormStyles />
         <div className="email">
-          <FormErrors formErrors={this.state.formErrors} />
-        </div>
-        <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
-          <label htmlFor="email">Email address</label>
-          <br />
-          <input type="text" required className="form-control" name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleUserInput} 
-             />
-        </div>
-        
-        <div className={`form-group ${this.errorClass(this.state.formErrors.Phonenumber)}`}>
-          <label htmlFor="Phonenumber">Phone number</label>
-          <br/>
-          <input type="text" className="form-control" name="Phonenumber"
-            placeholder="Phone number"
-            value={this.state.Phonenumber}
-            onChange={this.handleUserInput}  /> 
-        </div>
+          <FormStyles />
+          <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="Phonenumber"
+                  label="Phone number"
+                  name="Phone number"
+                  autoComplete="Phone number"
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="Phonenumber"
+                  label="Shop name"
+                  name="Shop name"
+                  autoComplete="Shop name"
+                  autoFocus
+                />
+                </div>
+        <FormControlLabel
+          control={<Checkbox />}
+          label="Agree to terms and conditions"
+        />
         <br />
-        <Button type="submit" color="primary" variant="contained" disabled={!this.state.formValid} fullWidth>
+        <Button type="submit" color="primary" variant="contained" fullWidth>
           <Link to="/otp" style={{ textDecoration: "none", color: "White" }}>
             Submit
           </Link>
         </Button>
-        </Paper>
-      </form>
-      </Grid>
-    )
-  }
+      </Paper>
+    </Grid>
+  );
 }
 
-export default Form;
+export default RoughForm;
