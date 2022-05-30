@@ -14,7 +14,7 @@ import { inputFormElements } from "./KformElement";
 
 const paperStyle = {
   padding: 20,
-  height: "120vh",
+  height: "130vh",
   width: 700,
   margin: "20px auto",
 };
@@ -48,7 +48,7 @@ export default function App() {
                 </Typography>
                 <Grid container spacing={1}>
                   {inputFormElements(register, errors)
-                    .slice(0, 6)
+                    .slice(0, 9)
                     .map((input) => (
                       <Grid xs={input.xs} sm={input.sm} item>
                         <TextField
@@ -67,10 +67,13 @@ export default function App() {
                 </Typography>
                 <Grid container spacing={1}>
                   {inputFormElements(register, errors)
-                    .slice(6, 10)
+                    .slice(10, 14)
                     .map((input) => (
                       <Grid xs={input.xs} sm={input.sm} item>
-                        <TextField {...input} />
+                        <TextField
+                          {...input}
+                          {...register(input.name, { ...input })}
+                        />
                       </Grid>
                     ))}
                 </Grid>

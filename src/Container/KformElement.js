@@ -1,8 +1,5 @@
 export const inputFormElements = (register, errors) => [
   {
-    formState: { errors },
-  },
-  {
     name: "PanNumber",
     placeholder: "Enter pan number",
     label: "PanNumber",
@@ -10,33 +7,59 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    ...register("PanNumber", {
-      required: "Required field",
-      pattern: {
-        value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?/i,
-        message: "Invalid Pan Number",
-      },
-    }),
+    required: "Required field",
+    pattern: {
+      value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?/i,
+      message: "Invalid Pan Number",
+    },
     errors: !!errors?.PanNumber,
     helperText: errors?.PanNumber ? errors.PanNumber.message : null,
+  },
+  {
+    name: "panimg",
+    type: "file",
+    variant: "outlined",
+    fullWidth: true,
+    xs: 12,
+    sm: 12,
+    required: "true",
   },
   {
     name: "AdhaarNumber",
     placeholder: "Enter Adhaar Number",
     label: "Adhaar Number",
+    type: "number",
     variant: "outlined",
     fullWidth: true,
     xs: 12,
     sm: 12,
-    ...register("AdhaarNumber", {
-      required: "Required field",
-      pattern: {
-        value: /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}?/i,
-        message: "Invalid Adhaar Number",
-      },
-    }),
+    required: "Required field",
+    pattern: {
+      value: /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}?/i,
+      message: "Invalid Adhaar Number",
+    },
     errors: !!errors?.AdhaarNumber,
     helperText: errors?.AdhaarNumber ? errors.AdhaarNumber.message : null,
+  },
+  {
+    name: "adhaarimg",
+    type: "file",
+    label: "AdhaarFront",
+    variant: "outlined",
+    fullWidth: true,
+    xs: 12,
+    sm: 6,
+    required: "true",
+  },
+  {
+    name: "adhaarimg",
+    type: "file",
+    label: "AdhaarBack",
+    variant: "outlined",
+    fullWidth: true,
+    xs: 12,
+    sm: 6,
+    required: "true",
   },
   {
     name: "GSTNumber",
@@ -46,13 +69,12 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    ...register("GSTNumber", {
-      required: "Required field",
-      pattern: {
-        value: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}?/i,
-        message: "Invalid Gst Number",
-      },
-    }),
+
+    required: "Required field",
+    pattern: {
+      value: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}?/i,
+      message: "Invalid Gst Number",
+    },
     errors: !!errors?.GSTNumber,
     helperText: errors?.GSTNumber ? errors.GSTNumber.message : null,
   },
@@ -79,6 +101,16 @@ export const inputFormElements = (register, errors) => [
     required: "Required field",
   },
   {
+    name: "chqimg",
+    type: "file",
+    label: "Cancelled Cheque",
+    variant: "outlined",
+    fullWidth: true,
+    xs: 12,
+    sm: 12,
+    required: "true",
+  },
+  {
     name: "IFSCCode",
     placeholder: "Enter IFSC Code",
     label: "IFSC Code",
@@ -87,6 +119,12 @@ export const inputFormElements = (register, errors) => [
     xs: 12,
     sm: 12,
     required: "Required field",
+    pattern: {
+      value: /^[A-Z]{4}0[A-Z0-9]{6}?/i,
+      message: "Invalid IFSC Code",
+    },
+    errors: !!errors?.IFSCCode,
+    helperText: errors?.IFSCCode ? errors.IFSCCode.message : null,
   },
   {
     name: "street",
@@ -128,7 +166,7 @@ export const inputFormElements = (register, errors) => [
     sm: 6,
     required: "Required field",
     pattern: {
-      value: /^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$/i,
+      value: /^[1-9][0-9]{5}$/i,
       message: "Invalid Pin",
     },
   },
