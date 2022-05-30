@@ -17,8 +17,8 @@ export const inputFormElements = (register, errors) => [
         message: "Invalid Pan Number",
       },
     }),
-    errors: !!errors?.email,
-    helperText: errors?.email ? errors.email.message : null,
+    errors: !!errors?.PanNumber,
+    helperText: errors?.PanNumber ? errors.PanNumber.message : null,
   },
   {
     name: "AdhaarNumber",
@@ -28,11 +28,15 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    required: "Required field",
-    pattern: {
-      value: /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$/i,
-      message: "Invalid Adhaar Number",
-    },
+    ...register("AdhaarNumber", {
+      required: "Required field",
+      pattern: {
+        value: /^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}?/i,
+        message: "Invalid Adhaar Number",
+      },
+    }),
+    errors: !!errors?.AdhaarNumber,
+    helperText: errors?.AdhaarNumber ? errors.AdhaarNumber.message : null,
   },
   {
     name: "GSTNumber",
@@ -42,11 +46,15 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    required: "Required field",
-    pattern: {
-      value: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/i,
-      message: "Invalid GST Number",
-    },
+    ...register("GSTNumber", {
+      required: "Required field",
+      pattern: {
+        value: /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}?/i,
+        message: "Invalid Gst Number",
+      },
+    }),
+    errors: !!errors?.GSTNumber,
+    helperText: errors?.GSTNumber ? errors.GSTNumber.message : null,
   },
   {
     name: "AccNumber",
