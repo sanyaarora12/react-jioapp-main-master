@@ -47,21 +47,25 @@ export default function App() {
                   Kyc Info :{" "}
                 </Typography>
                 <Grid container spacing={1}>
-                  {inputFormElements.slice(0, 6).map((input) => (
-                    <Grid xs={input.xs} sm={input.sm} item>
-                      <TextField {...input} />
-                    </Grid>
-                  ))}
+                  {inputFormElements(errors)
+                    .slice(0, 6)
+                    .map((input) => (
+                      <Grid xs={input.xs} sm={input.sm} item>
+                        <TextField {...input} />
+                      </Grid>
+                    ))}
                 </Grid>
                 <Typography variant="body2" align="left" gutterBottom>
                   Address :{" "}
                 </Typography>
                 <Grid container spacing={1}>
-                  {inputFormElements.slice(6, 10).map((input) => (
-                    <Grid xs={input.xs} sm={input.sm} item>
-                      <TextField {...input} />
-                    </Grid>
-                  ))}
+                  {inputFormElements(errors)
+                    .slice(6, 10)
+                    .map((input) => (
+                      <Grid xs={input.xs} sm={input.sm} item>
+                        <TextField {...input} />
+                      </Grid>
+                    ))}
                 </Grid>
                 <Grid container spacing={1}>
                   <Grid item xs={12} align="right">
