@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Paper } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
   Grid,
@@ -21,7 +21,9 @@ const paperStyle = {
 
 export default function App() {
   const margin = { margin: "0 5px" };
+  const navigate = useNavigate();
   const onSubmit = (data) => {
+    navigate("/SuccessfulRegistration");
     console.log({ data });
   };
   const {
@@ -67,7 +69,7 @@ export default function App() {
                 </Typography>
                 <Grid container spacing={1}>
                   {inputFormElements(register, errors)
-                    .slice(10, 14)
+                    .slice(9, 13)
                     .map((input) => (
                       <Grid xs={input.xs} sm={input.sm} item>
                         <TextField
@@ -88,12 +90,7 @@ export default function App() {
                       Reset
                     </Button>
                     <Button type="submit" variant="contained" color="primary">
-                      <Link
-                        to="/SuccessfulRegistration"
-                        style={{ textDecoration: "none", color: "White" }}
-                      >
-                        Submit
-                      </Link>
+                      Submit
                     </Button>
                   </Grid>
                 </Grid>
