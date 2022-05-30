@@ -1,4 +1,4 @@
-export const inputFormElements = (errors) => [
+export const inputFormElements = (register, errors) => [
   {
     formState: { errors },
   },
@@ -10,14 +10,15 @@ export const inputFormElements = (errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    required: "Required field",
-    pattern: {
-      value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/i,
-      message: "Invalid Pan Number",
-    },
-
-    error: errors?.PanNumber,
-    helperText: errors?.PanNumber ? errors.PanNumber.message : null,
+    ...register("PanNumber", {
+      required: "Required field",
+      pattern: {
+        value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?/i,
+        message: "Invalid Pan Number",
+      },
+    }),
+    errors: !!errors?.email,
+    helperText: errors?.email ? errors.email.message : null,
   },
   {
     name: "AdhaarNumber",
@@ -120,7 +121,7 @@ export const inputFormElements = (errors) => [
     required: "Required field",
     pattern: {
       value: /^[1-9]{1}[0-9]{2}\\s{0, 1}[0-9]{3}$/i,
-      message: "Invalid Pan Number",
+      message: "Invalid Pin",
     },
   },
 ];
