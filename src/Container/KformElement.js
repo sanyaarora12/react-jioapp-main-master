@@ -98,25 +98,6 @@ export const inputFormElements = (register, errors) => [
     errors: !!errors?.AccNumber,
     helperText: errors?.AccNumber ? errors.AccNumber.message : null,
   },
-  // {
-  //   name: "ConfirmAccNumber",
-  //   type: "number",
-  //   placeholder: "Confirm AccNumber",
-  //   label: "ConfirmAccNumber",
-  //   variant: "outlined",
-  //   fullWidth: true,
-  //   pattern: {
-  //     value: /^[0-9]{9,18}?/i,
-  //   },
-  //   // inputRef: {
-  //   //   validate: (value) =>
-  //   //     value === getValues("AccNumber") || "Invalid Account Number",
-  //   // },
-
-  //   xs: 12,
-  //   sm: 12,
-  //   required: "Required field",
-  // },
 
   {
     name: "IFSCCode",
