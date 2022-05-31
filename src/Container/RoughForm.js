@@ -3,7 +3,7 @@
 // import { Link } from "react-router-dom";
 // import { Grid, Paper } from "@mui/material";
 // import Avatar from "@mui/material/Avatar";
-// import AccountBoxIcon from "@mui/icons-material/AccountBox";
+// import AcFormDataBoxIcon from "@mui/icons-material/AcFormDataBox";
 // import Button from "@mui/material/Button";
 // import FormControlLabel from "@mui/material/FormControlLabel";
 // import Checkbox from "@mui/material/Checkbox";
@@ -77,7 +77,7 @@
 //         <Paper elevation={10} style={paperStyle}>
 //         <Grid align="center">
 //           <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
-//             <AccountBoxIcon />
+//             <AcFormDataBoxIcon />
 //           </Avatar>
 //           <h2>Sign up</h2>
 //         </Grid>
@@ -148,47 +148,30 @@
 
 // export default RoughForm;
 import * as React from 'react';
-import { useForm } from "react-hook-form";
 import Avatar from '@mui/material/Avatar';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-// import Link from '@mui/material/Link';
 import { Grid, Paper } from "@mui/material";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
+// import AcFormDataBoxIcon from "@mui/icons-material/AcFormDataBox";
 import Box from '@mui/material/Box';
-// import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Validations from './Validation';
 
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const theme = createTheme();
 
-export default function SignIn() {
-  // const onSubmit = (data) => {
-  //   console.log({ data });
-  // };
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
+export default function SignUp() {
+
+  const [formData, setFormData] = useState({});
 
   const handleSubmit = (event) => {
+    Validations()
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
@@ -196,19 +179,25 @@ export default function SignIn() {
       phoneNumber: data.get('phoneNumber'),
     });
   };
+    const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ [name]: value });
+    
+  };
 
-  const paperStyle = {padding: 20,height: "100vh", width: 400};
+  console.log(formData);
+  const paperStyle = {padding: 20,height: "90vh", width: 400};
    const avatarStyle = { backgroundColor: "#0384fc" };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
            <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <AccountBoxIcon />
+            <AcFormDataBoxIcon />
            </Avatar>
           <h2>Sign up</h2>
         </Grid>
@@ -227,24 +216,17 @@ export default function SignIn() {
               fullWidth
               id="email"
               label="Email Address"
+              onChange={handleChange}
               name="email"
               autoComplete="email"
               autoFocus
-              {...register("email", {
-                required: "Required field",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Invalid email address",
-                },
-              })}
-              error={!!errors?.email}
-              helperText={errors?.email ? errors.email.message : null}
             />
             <TextField
               margin="normal"
               required
               fullWidth
               name="phoneNumber"
+              onChange={handleChange}
               label="phoneNumber"
               type="number"
               id="phoneNumber"
@@ -255,6 +237,7 @@ export default function SignIn() {
               required
               fullWidth
               name="phoneNumber"
+              onChange={handleChange}
               label="Shop Name"
               id="phoneNumber"
               autoComplete="current-phoneNumber"
@@ -276,7 +259,6 @@ export default function SignIn() {
             
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
         </Paper>
       </Container>
     </ThemeProvider>
