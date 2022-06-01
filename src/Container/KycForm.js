@@ -23,6 +23,7 @@ export default function App() {
   const margin = { margin: "0 5px" };
   const navigate = useNavigate();
   const onSubmit = (data) => {
+    localStorage.setItem("userdetails");
     navigate("/SuccessfulRegistration");
     console.log({ data });
   };
@@ -31,6 +32,7 @@ export default function App() {
     register,
     formState: { errors },
   } = useForm();
+  // add data to localStorage
 
   return (
     <div className="App">
