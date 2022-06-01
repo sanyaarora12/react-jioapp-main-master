@@ -55,12 +55,12 @@
 //   handleChange = (e) => {
 //     const { name, value } = e.target;
 //     this.setState({ [name]: value });
-    
+
 //   };
 
 //   handleSubmit = (e) => {
 //     e.preventDefault();
-    
+
 //     if (this.handleFormValidation()) {
 //       this.setState(this.initialState);
 //     }
@@ -70,7 +70,7 @@
 //     const { emailIdErr, phoneNumberErr } = this.state.formErrors;
 //     const paperStyle = {padding: 20,height: "80vh", width: 300, margin: "20px auto"};
 //     const avatarStyle = { backgroundColor: "#0384fc" };
-    
+
 //     console.log(this.state);
 //     return (
 //       <Grid>
@@ -85,7 +85,7 @@
 //         <div>
 //           <form onSubmit={this.handleSubmit}>
 //             <div>
-//             <TextField 
+//             <TextField
 //               type='email'
 //               name='emailId'
 //                onChange={this.handleChange}
@@ -107,8 +107,8 @@
 //             </div>
 
 //             <div>
-//             <TextField 
-//               type='phoneNumber' 
+//             <TextField
+//               type='phoneNumber'
 //               name='phoneNumber'
 //               onChange={this.handleChange}
 //               margin="normal"
@@ -130,7 +130,7 @@
 //           control={<Checkbox />}
 //           label="Agree to terms and conditions"
 //         />
-    
+
 //             <Button type="submit" color="primary" variant="contained" fullWidth >
 //               < Link to="/otp" style={{ textDecoration: "none", color: "White" }}>
 //             Submit
@@ -141,127 +141,134 @@
 //       </div>
 //       </Paper>
 //       </Grid>
-      
+
 //     );
 //   }
 // }
 
 // export default RoughForm;
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import { useState } from 'react';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import { useState } from "react";
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import { Grid, Paper } from "@mui/material";
-// import AcFormDataBoxIcon from "@mui/icons-material/AcFormDataBox";
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Validations from './Validation';
-
+//import AcFormDataBoxIcon from "@mui/icons-material/AcFormDataBox";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Validations from "./Validation";
 
 const theme = createTheme();
 
 export default function SignUp() {
-
   const [formData, setFormData] = useState({});
 
   const handleSubmit = (event) => {
-    Validations()
+    Validations();
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      phoneNumber: data.get('phoneNumber'),
+      email: data.get("email"),
+      phoneNumber: data.get("phoneNumber"),
     });
   };
-    const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ [name]: value });
-    
   };
 
   console.log(formData);
-  const paperStyle = {padding: 20,height: "90vh", width: 400};
-   const avatarStyle = { backgroundColor: "#0384fc" };
+  const paperStyle = { padding: 20, height: "90vh", width: 400 };
+  const avatarStyle = { backgroundColor: "#0384fc" };
 
   return (
     <form onSubmit={handleSubmit}>
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Paper elevation={10} style={paperStyle}>
-        <Grid align="center">
-           <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <AcFormDataBoxIcon />
-           </Avatar>
-          <h2>Sign up</h2>
-        </Grid>
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              onChange={handleChange}
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="phoneNumber"
-              onChange={handleChange}
-              label="phoneNumber"
-              type="number"
-              id="phoneNumber"
-              autoComplete="current-phoneNumber"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="phoneNumber"
-              onChange={handleChange}
-              label="Shop Name"
-              id="phoneNumber"
-              autoComplete="current-phoneNumber"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Paper elevation={10} style={paperStyle}>
+            <Grid align="center">
+              <Avatar
+                style={avatarStyle}
+                sx={{ m: 1, bgcolor: "secondary.main" }}
+              >
+                {/* <AcFormDataBoxIcon /> */}
+              </Avatar>
+              <h2>Sign up</h2>
+            </Grid>
+            <Box
+              sx={{
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              <Link to="/otp" style={{ textDecoration: "none", color: "White" }}>
-              SUBMIT
-              </Link>
-            </Button>
-            
-          </Box>
-        </Box>
-        </Paper>
-      </Container>
-    </ThemeProvider>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                noValidate
+                sx={{ mt: 1 }}
+              >
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  onChange={handleChange}
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  label="phoneNumber"
+                  type="number"
+                  id="phoneNumber"
+                  autoComplete="current-phoneNumber"
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  label="Shop Name"
+                  id="phoneNumber"
+                  autoComplete="current-phoneNumber"
+                />
+                <FormControlLabel
+                  control={<Checkbox value="remember" color="primary" />}
+                  label="Remember me"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  <Link
+                    to="/otp"
+                    style={{ textDecoration: "none", color: "White" }}
+                  >
+                    SUBMIT
+                  </Link>
+                </Button>
+              </Box>
+            </Box>
+          </Paper>
+        </Container>
+      </ThemeProvider>
     </form>
   );
 }
