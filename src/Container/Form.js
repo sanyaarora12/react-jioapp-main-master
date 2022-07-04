@@ -129,9 +129,9 @@ export default function SignInSide() {
                 </Button>
                 <Grid container>
                   <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Login for Approvers
-                    </Link>
+                    <NavLink to="/home" variant="body2">
+                     {"Login for Approvers"}
+                    </NavLink>
                   </Grid>
                   <Grid item>
                     <NavLink to="/roughform">

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "../Container/Header";
-// import Home from "../Container/Home";
+import Home from "../Container/Home";
 import Terms from "../Container/Terms";
 import ValidatedLoginForm from "../Container/ValidatedLoginForm";
 import { LoginForm } from "../Container/LoginForm";
@@ -24,6 +24,7 @@ export default function Routers() {
           <Route exact path="/form3" element={<Form3 />} />
           <Route path="/header" element={<Header />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
           <Route path="/LoginForm" element={<LoginForm />} />
 

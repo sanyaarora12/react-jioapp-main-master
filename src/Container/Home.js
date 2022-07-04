@@ -1,33 +1,120 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import GlobalStyles from "../Components/Global";
-import HomeStyles from "../Components/HomeStyles";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import { Grid, Paper } from "@mui/material";
+import Box from '@mui/material/Box';
 
-export class Home extends Component {
-  render() {
-    return (
-      <div>
-        <HomeStyles />
-        <GlobalStyles />
-        <h1>Welcome to JioPos Lite</h1>
-        <br />
-        <button type="button" className="btn btn-primary btn-lg">
-          <Link to="/form" style={{ textDecoration: "none", color: "White" }}>
-            Login
-          </Link>
-        </button>
-        <br />
-        <br />
-        <button type="button" className="btn btn-primary btn-lg">
-          <Link
-            to="/validatedloginform"
-            style={{ textDecoration: "none", color: "White" }}
-          >
-            Register
-          </Link>
-        </button>
-      </div>
-    );
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
+
+const paperStyle = {padding: 20,height: "90vh", width: 400};
+   const avatarStyle = { backgroundColor: "#0384fc" };
+
+   
+
+const theme = createTheme();
+
+
+export default function SignIn() {
+  const navigate= useNavigate();
+
+  const[loginInfo,setLoginInfo]=React.useState({username:"",password:""})
+
+  const handleSubmit = (event) => {
+    // event.preventDefault();
+    const {username,password}=loginInfo;
+    if(username!=="" && password!==""){
+      const uname= localStorage.getItem("username");
+      const pass= localStorage.getItem("password");
+      if(uname===username && pass===password){
+        navigate("/admin");
+      }
+    }
+    const data = new FormData(event.currentTarget);
+    console.log({
+      username: data.get('username'),
+      password: data.get('password'),
+    });
+  };
+ 
+  const handleChange=(e)=>{
+    const{ name,value}=e.target;
+    setLoginInfo({...loginInfo,[name]:value});
   }
+  // let saveData = () =>{
+  //   localStorage.setItem('username', "sanya");
+  //   localStorage.setItem('password', "123");
+  //   localStorage.setItem('username', "password");
+  // }
+
+  return (
+    
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Paper elevation={10} style={paperStyle}>
+        <Grid align="center">
+           <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
+            
+           </Avatar>
+          <h2>Sign in</h2>
+        </Grid>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Username"
+              name="username"
+              onChange={handleChange}
+              autoComplete="username"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              onChange={handleChange}
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            {/* <button onClick={saveData}>Save!</button> */}
+          </Box>
+        </Box>
+        </Paper>
+      </Container>
+    </ThemeProvider>
+   
+  );
 }
-export default Home;
+
+
