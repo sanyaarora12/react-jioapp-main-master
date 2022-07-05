@@ -7,7 +7,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Grid, Paper } from "@mui/material";
 import Box from '@mui/material/Box';
-
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
@@ -26,15 +25,11 @@ export default function SignIn() {
   const[loginInfo,setLoginInfo]=React.useState({username:"",password:""})
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    const {username,password}=loginInfo;
-    if(username!=="" && password!==""){
-      const uname= localStorage.getItem("username");
-      const pass= localStorage.getItem("password");
-      if(uname===username && pass===password){
-        navigate("/admin");
-      }
-    }
+    event.preventDefault();
+    
+      navigate("/approval")
+    
+    
     const data = new FormData(event.currentTarget);
     console.log({
       username: data.get('username'),
@@ -46,11 +41,7 @@ export default function SignIn() {
     const{ name,value}=e.target;
     setLoginInfo({...loginInfo,[name]:value});
   }
-  // let saveData = () =>{
-  //   localStorage.setItem('username', "sanya");
-  //   localStorage.setItem('password', "123");
-  //   localStorage.setItem('username', "password");
-  // }
+  
 
   return (
     
@@ -107,7 +98,7 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            {/* <button onClick={saveData}>Save!</button> */}
+           
           </Box>
         </Box>
         </Paper>

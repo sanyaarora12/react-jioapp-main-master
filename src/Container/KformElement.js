@@ -21,7 +21,6 @@ export const inputFormElements = (register, errors) => [
     label: "Pan Card",
     variant: "outlined",
     fullWidth: true,
-    //hidden: true,
     xs: 12,
     sm: 12,
     required: "true",

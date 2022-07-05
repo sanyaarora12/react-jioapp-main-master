@@ -125,7 +125,7 @@ export default function SignInSide() {
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
                 >
-                  Sign In
+                 Sign in
                 </Button>
                 <Grid container>
                   <Grid item xs>
