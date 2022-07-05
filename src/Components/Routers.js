@@ -12,12 +12,14 @@ import Form from "../Container/Form";
 import Kycform from "../Container/KycForm";
 import Form3 from "../Container/Form3";
 import RoughForm from "../Container/RoughForm";
+import Approval from "../Container/Approval";
 
 export default function Routers() {
   return (
     <div>
       <Router>
         <Routes>
+        <Route exact path="/approval" element={<Approval />} />
           <Route exact path="/" element={<Form />} />
           <Route exact path="/roughform" element={<RoughForm />} />
           <Route exact path="/form" element={<Form />} />
