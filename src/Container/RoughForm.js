@@ -1,6 +1,6 @@
-
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
@@ -14,14 +14,14 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Validations from './Validation';
 
-
 const theme = createTheme();
 
 export default function SignUp() {
 
   let navigate = useNavigate();
   const [formData, setFormData] = useState({email:"",phonenumber:"",shopname:""});
-
+ 
+//updated
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,8 +29,12 @@ export default function SignUp() {
     setFormData({...formData,errors})
     if(!Object.keys(errors).length){
       navigate("/otp")
+      localStorage.setItem("formData",JSON.stringify(formData))
+    displayData();
     }
+    
   };
+
     const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({...formData, [name]: value });
@@ -39,10 +43,27 @@ export default function SignUp() {
 
   console.log(formData);
   const paperStyle = {padding: 20,height: "90vh", width: 400};
-   const avatarStyle = { backgroundColor: "#0384fc" };
-
+  const avatarStyle = { backgroundColor: "#0384fc" };
   
-
+  function displayData(){
+    if(localStorage.getItem("formData")){
+      var output=document.querySelector("tbody");
+      output.innerHTML="";
+      JSON.parse(localStorage.getItem("formData")).forEach((data)=>{
+        output.innerHTML += `
+        <tr>
+        <td>${data.email}</td>
+        </tr>
+        <tr>
+        <td>${data.number}</td>
+        </tr>
+        <tr>
+        <td>${data.shopname}</td>
+        </tr>
+        `;
+      });
+    }
+  }
   return (
     
     <ThemeProvider theme={theme}>
@@ -51,7 +72,7 @@ export default function SignUp() {
         <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
            <Avatar style={avatarStyle} sx={{ m: 1, bgcolor: "secondary.main" }}>
-            {/* <AcFormDataBoxIcon /> */}
+            
            </Avatar>
           <h2>Sign up</h2>
         </Grid>
@@ -72,6 +93,7 @@ export default function SignUp() {
               label="Email Address"
               onChange={handleChange}
               name="email"
+             
               autoComplete="email"
               autoFocus
               error={formData?.errors?.email?.length>0?true : false}
@@ -82,7 +104,7 @@ export default function SignUp() {
               fullWidth
               name="phonenumber"
               onChange={handleChange}
-              label="phoneNumber"
+              label="Phone Number"
               type="number"
               id="phoneNumber"
               autoComplete="current-phoneNumber"
@@ -101,8 +123,12 @@ export default function SignUp() {
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
             />
+           <NavLink to="/terms">
+           Terms and conditions applied
+           </NavLink>
+              
+
             <Button
               type="submit"
               fullWidth
@@ -111,7 +137,6 @@ export default function SignUp() {
               onClick={handleSubmit}
             >
               SUBMIT
-              
             </Button>
             
           </Box>
