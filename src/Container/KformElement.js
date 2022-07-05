@@ -18,7 +18,7 @@ export const inputFormElements = (register, errors) => [
   {
     name: "panimg",
     type: "file",
-    label: "Pan Card",
+    //label: "Pan Card",
     variant: "outlined",
     fullWidth: true,
     xs: 12,
@@ -45,10 +45,9 @@ export const inputFormElements = (register, errors) => [
   {
     name: "adhaarimg",
     type: "file",
-    label: "AdhaarFront",
+    // label: "AdhaarFront",
     variant: "outlined",
     fullWidth: true,
-    //hidden: true,
     xs: 12,
     sm: 6,
     required: "true",
@@ -56,10 +55,9 @@ export const inputFormElements = (register, errors) => [
   {
     name: "adhaarimg2",
     type: "file",
-    label: "AdhaarBack",
+    //label: "AdhaarBack",
     variant: "outlined",
     fullWidth: true,
-    //hidden: true,
     xs: 12,
     sm: 6,
     required: "true",
@@ -89,7 +87,6 @@ export const inputFormElements = (register, errors) => [
     fullWidth: true,
     xs: 12,
     sm: 12,
-    //inputRef: { required: true },
     pattern: {
       value: /^[0-9]{9,18}?/i,
       message: "Invalid Account Number",
@@ -117,10 +114,9 @@ export const inputFormElements = (register, errors) => [
   {
     name: "chqimg",
     type: "file",
-    label: "Cancelled Cheque",
+    //label: "Cancelled Cheque",
     variant: "outlined",
     fullWidth: true,
-    //hidden: true,
     xs: 12,
     sm: 12,
     required: "true",
