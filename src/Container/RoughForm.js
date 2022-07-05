@@ -105,11 +105,12 @@ export default function SignUp() {
               name="phonenumber"
               onChange={handleChange}
               label="Phone Number"
-              type="number"
               id="phoneNumber"
               autoComplete="current-phoneNumber"
               error={formData?.errors?.phonenumber?.length>0?true : false}
+
             />
+            
             <TextField
               margin="normal"
               required
