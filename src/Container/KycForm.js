@@ -23,7 +23,6 @@ export default function App() {
   const margin = { margin: "0 5px" };
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    localStorage.setItem("userdetails");
     navigate("/SuccessfulRegistration");
     console.log({ data });
   };
