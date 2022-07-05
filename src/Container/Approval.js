@@ -8,6 +8,10 @@ export default function Approval() {
     const arr = contacts.filter((item) => item.id !== id);
     setContacts(arr);
   };
+
+  const handleClick=()=>{
+    alert("accepted!")
+  }
   return (
     <div id='output'>
         <table>
@@ -37,7 +41,7 @@ export default function Approval() {
                   <td>{contact.email}</td>
                   <td>{contact.pannumber}</td>
                   <td>{contact.aadhaarno}</td>
-                  <button onClick="al">Accept</button>
+                  <button onClick={handleClick}>Accept</button>
                   <button onClick={() => handleRemove(contact.id)}>Reject</button>
                 </tr>
               ))}
