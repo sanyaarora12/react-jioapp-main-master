@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "fullName": "Jenny Chan",
+      "address": "waterfoot road",
+      "phoneNumber": "3339627516",
+      "email": "jenny.chan@email.com",
+      "pannumber":"ZZZ123",
+      "aadhaarno":"834375829"
+    },
+    {
+      "id": 2,
+      "fullName": "Jessica warren",
+      "address": "tall town",
+      "phoneNumber": "0112117516",
+      "email": "jessica.warren@email.com",
+      "pannumber":"AAA123",
+      "aadhaarno":"523243643"
+    },
+    {
+      "id": 3,
+      "fullName": "Tony Frank",
+      "address": "lesly road",
+      "phoneNumber": "7889627516",
+      "email": "tony.frank@email.com",
+      "pannumber":"BBB123",
+      "aadhaarno":"732847735"
+    },
+    {
+      "id": 4,
+      "fullName": "Jeremy Clark",
+      "address": "miltown manor",
+      "phoneNumber": "011962111",
+      "email": "jeremy.clark@email.com",
+      "pannumber":"CCC123",
+      "aadhaarno":"834776542"
+    },
+    {
+      "id": 5,
+      "fullName": "Raymond Edward",
+      "address": "blue acres",
+      "phoneNumber": "32319627516",
+      "email": "raymon.edwards@email.com",
+      "pannumber":"DDD123",
+      "aadhaarno":"162364563"
+    }
+  ]

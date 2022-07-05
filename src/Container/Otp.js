@@ -6,13 +6,16 @@ import OtpStyle from "../Components/OtpStyle";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function Otp() {
   const [code, setCode] = useState("");
 
+  const navigate = useNavigate();
+
   const handleChange = (code) => setCode(code);
 
-  const navigate = useNavigate();
+  const { handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     navigate("/KycForm");
@@ -35,10 +38,10 @@ export default function Otp() {
             Otp has been sent successfully.
             <br /> Please enter the same OTP below{" "}
           </h3>
-
           <OtpInput
             value={code}
             onChange={handleChange}
+            onSubmit={handleSubmit(onSubmit)}
             numInputs={6}
             separator={<span style={{ width: "8px" }}></span>}
             isInputNum={true}
@@ -60,22 +63,21 @@ export default function Otp() {
               outline: "none",
             }}
           />
-
           <br />
           <br />
           <br />
-          <Button
-            type="submit"
-            color="primary"
-            variant="contained"
-            onClick={onSubmit}
-          >
-            SUBMIT
+          <Button type="submit" color="primary" variant="contained">
+            <Link
+              to="/KycForm"
+              style={{ textDecoration: "none", color: "White" }}
+            >
+              SUBMIT
+            </Link>
           </Button>
           <br />
           <Button type="submit" color="primary" variant="contained">
             <Link
-              to="/RoughForm"
+              to="/form3"
               style={{ textDecoration: "none", color: "White" }}
             >
               Resend OTP

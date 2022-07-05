@@ -31,7 +31,6 @@ export default function App() {
     register,
     formState: { errors },
   } = useForm();
-  // add data to localStorage
 
   return (
     <div className="App">
