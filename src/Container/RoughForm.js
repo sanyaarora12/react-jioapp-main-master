@@ -21,7 +21,6 @@ export default function SignUp() {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({email:"",phonenumber:"",shopname:""});
  
-//updated
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -93,7 +92,6 @@ export default function SignUp() {
               label="Email Address"
               onChange={handleChange}
               name="email"
-             
               autoComplete="email"
               autoFocus
               error={formData?.errors?.email?.length>0?true : false}
