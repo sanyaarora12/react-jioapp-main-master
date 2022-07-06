@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-
 import { Grid, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -38,6 +37,7 @@ export default function SignUp() {
     setFormData({ ...formData, [name]: value });
     console.log(e);
   };
+
 
   console.log(formData);
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
@@ -100,6 +100,7 @@ export default function SignUp() {
                 autoFocus
                 error={formData?.errors?.email?.length > 0 ? true : false}
               />
+              
               <TextField
                 margin="normal"
                 required
@@ -123,7 +124,8 @@ export default function SignUp() {
                 autoComplete="current-phoneNumber"
                 error={formData?.errors?.shopname?.length > 0 ? true : false}
               />
-
+              
+              
               <Button
                 type="submit"
                 fullWidth
@@ -133,6 +135,7 @@ export default function SignUp() {
               >
                 SUBMIT
               </Button>
+              <label>All the fields are mandatory to fill.</label>
             </Box>
           </Box>
         </Paper>
