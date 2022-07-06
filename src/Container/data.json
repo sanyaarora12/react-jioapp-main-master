@@ -6,7 +6,8 @@
       "phoneNumber": "3339627516",
       "email": "jenny.chan@email.com",
       "pannumber":"ZZZ123",
-      "aadhaarno":"834375829"
+      "aadhaarno":"834375829",
+      "GSTNumber": "09AAACH7409R1ZZ"
     },
     {
       "id": 2,
@@ -15,7 +16,8 @@
       "phoneNumber": "0112117516",
       "email": "jessica.warren@email.com",
       "pannumber":"AAA123",
-      "aadhaarno":"523243643"
+      "aadhaarno":"523243643",
+       "GSTNumber": "29AAACH7409R1ZX"
     },
     {
       "id": 3,
@@ -24,7 +26,8 @@
       "phoneNumber": "7889627516",
       "email": "tony.frank@email.com",
       "pannumber":"BBB123",
-      "aadhaarno":"732847735"
+      "aadhaarno":"732847735",
+       "GSTNumber": "36AAACH7409R1Z2"
     },
     {
       "id": 4,
@@ -33,7 +36,8 @@
       "phoneNumber": "011962111",
       "email": "jeremy.clark@email.com",
       "pannumber":"CCC123",
-      "aadhaarno":"834776542"
+      "aadhaarno":"834776542",
+       "GSTNumber": "33AAACH7409R1Z8"
     },
     {
       "id": 5,
@@ -42,6 +46,57 @@
       "phoneNumber": "32319627516",
       "email": "raymon.edwards@email.com",
       "pannumber":"DDD123",
-      "aadhaarno":"162364563"
+      "aadhaarno":"162364563",
+       "GSTNumber": "24AAACH7409R2Z6"
+    },
+    {
+      "id": 6,
+      "fullName": "Jess warren",
+      "address": "tall town",
+      "phoneNumber": "0115417516",
+      "email": "jess.warren@email.com",
+      "pannumber":"AAA143",
+      "aadhaarno":"523243443",
+       "GSTNumber": "23AAACH7409R1ZX"
+    },
+    {
+      "id": 7,
+      "fullName": "Emily warren",
+      "address": "Riverdale",
+      "phoneNumber": "9872117516",
+      "email": "emily.warren@email.com",
+      "pannumber":"KKK123",
+      "aadhaarno":"523243343",
+       "GSTNumber": "29AAACH8979R1ZX"
+    },
+    {
+      "id": 8,
+      "fullName": "Rachel Green ",
+      "address": "New York",
+      "phoneNumber": "9082117516",
+      "email": "rachel.green@email.com",
+      "pannumber":"GGG123",
+      "aadhaarno":"523243786",
+       "GSTNumber": "29AAACH8997R1ZX"
+    },
+    {
+      "id": 9,
+      "fullName": "Monika Geller",
+      "address": "27th street",
+      "phoneNumber": "7982117516",
+      "email": "monica.geller@email.com",
+      "pannumber":"FFF123",
+      "aadhaarno":"523243643",
+       "GSTNumber": "29VVVCH7489R1ZX"
+    },
+    {
+      "id": 10,
+      "fullName": "Marshal Ericksen",
+      "address": "19th street",
+      "phoneNumber": "01121876516",
+      "email": "marshal.ericksen@email.com",
+      "pannumber":"JJJ123",
+      "aadhaarno":"523983643",
+       "GSTNumber": "29AAANH7409R1ZX"
     }
   ]
