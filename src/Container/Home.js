@@ -138,8 +138,7 @@ export default function SignUp() {
     setFormData({...formData,errors})
     if(!Object.keys(errors).length){
       navigate("/approval")
-      localStorage.setItem("formData",JSON.stringify(formData))
-    displayData();
+      
     }
     
   };
@@ -154,25 +153,6 @@ export default function SignUp() {
   const paperStyle = {padding: 20,height: "90vh", width: 400};
   const avatarStyle = { backgroundColor: "#0384fc" };
   
-  function displayData(){
-    if(localStorage.getItem("formData")){
-      var output=document.querySelector("tbody");
-      output.innerHTML="";
-      JSON.parse(localStorage.getItem("formData")).forEach((data)=>{
-        output.innerHTML += `
-        <tr>
-        <td>${data.email}</td>
-        </tr>
-        <tr>
-        <td>${data.number}</td>
-        </tr>
-        <tr>
-        <td>${data.shopname}</td>
-        </tr>
-        `;
-      });
-    }
-  }
   return (
     
     <ThemeProvider theme={theme}>
@@ -228,12 +208,10 @@ export default function SignUp() {
               label="Password"
               id="shopname"
               autoComplete="current-phoneNumber"
-              
+              type="password"
               error={formData?.errors?.shopname?.length>0?true : false}
             />
            
-              
-
             <Button
               type="submit"
               fullWidth
