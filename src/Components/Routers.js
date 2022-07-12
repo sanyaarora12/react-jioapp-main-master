@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "../Container/Header";
 import Home from "../Container/Home";
 import Terms from "../Container/Terms";
-import ValidatedLoginForm from "../Container/ValidatedLoginForm";
+//import ValidatedLoginForm from "../Container/ValidatedLoginForm";
 import { LoginForm } from "../Container/LoginForm";
 import Otp from "../Container/Otp";
 import ValidatedBankDetails from "../Container/ValidatedBankDetails";
@@ -13,13 +13,14 @@ import Kycform from "../Container/KycForm";
 import Form3 from "../Container/Form3";
 import RoughForm from "../Container/RoughForm";
 import Approval from "../Container/Approval";
+import AddressForm from "../Container/AddressForm";
 
 export default function Routers() {
   return (
     <div>
       <Router>
         <Routes>
-        <Route exact path="/approval" element={<Approval />} />
+          <Route exact path="/approval" element={<Approval />} />
           <Route exact path="/" element={<Form />} />
           <Route exact path="/roughform" element={<RoughForm />} />
           <Route exact path="/form" element={<Form />} />
@@ -27,12 +28,12 @@ export default function Routers() {
           <Route path="/header" element={<Header />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
+
           <Route path="/LoginForm" element={<LoginForm />} />
 
           <Route path="/otp" element={<Otp />} />
           <Route path="/Kycform" element={<Kycform />} />
-
+          <Route path="/AddressForm" element={<AddressForm />} />
           <Route
             path="/validatedbankdetails"
             element={<ValidatedBankDetails />}
