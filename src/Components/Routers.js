@@ -12,16 +12,21 @@ import Form from "../Container/Form";
 import Kycform from "../Container/KycForm";
 import Form3 from "../Container/Form3";
 import RoughForm from "../Container/RoughForm";
+import RoughForms from "../Container/RoughForms";
 import Approval from "../Container/Approval";
+import { RequireAuth } from "./RequireAuth";
+
 
 export default function Routers() {
   return (
     <div>
       <Router>
         <Routes>
+        
         <Route exact path="/approval" element={<Approval />} />
           <Route exact path="/" element={<Form />} />
           <Route exact path="/roughform" element={<RoughForm />} />
+          <Route exact path="/roughforms" element={<RoughForms />} />
           <Route exact path="/form" element={<Form />} />
           <Route exact path="/form3" element={<Form3 />} />
           <Route path="/header" element={<Header />} />
@@ -29,7 +34,6 @@ export default function Routers() {
           <Route path="/home" element={<Home />} />
           <Route path="/ValidatedLoginForm" element={<ValidatedLoginForm />} />
           <Route path="/LoginForm" element={<LoginForm />} />
-
           <Route path="/otp" element={<Otp />} />
           <Route path="/Kycform" element={<Kycform />} />
 
@@ -39,7 +43,7 @@ export default function Routers() {
           />
           <Route
             path="/successfulregistration"
-            element={<SuccessfulRegistration />}
+            element={<RequireAuth><SuccessfulRegistration /></RequireAuth>}
           />
         </Routes>
       </Router>

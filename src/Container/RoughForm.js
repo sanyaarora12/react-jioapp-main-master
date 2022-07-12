@@ -35,11 +35,9 @@ export default function SignUp() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(e);
+    
   };
 
-
-  console.log(formData);
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
   const avatarStyle = { backgroundColor: "#0384fc" };
 
@@ -135,6 +133,7 @@ export default function SignUp() {
               >
                 SUBMIT
               </Button>
+              
               <label>All the fields are mandatory to fill.</label>
             </Box>
           </Box>

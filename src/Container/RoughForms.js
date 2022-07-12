@@ -1,114 +1,97 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Container, Button, Grid, Paper, TextField } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+const Login = () => {
+  const navigate = useNavigate();
+  const [values, setValues] = useState({
+    email: "",
+    pass: "",
+    showPass: false,
+  });
 
-const theme = createTheme();
-
-export default function SignIn() {
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://reqres.in/api/login", {
+        email: values.email,
+        password: values.pass,
+      })
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        navigate("/approval");
+      })
+      .catch((err) => console.error(err));
   };
 
+  const paperStyle = { padding: 20, height: "90vh", width: 400 };
+  const avatarStyle = { backgroundColor: "#0384fc" };
+
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+    <div>
+      <Container maxWidth="sm">
+        <Grid
+          container
+          spacing={2}
+          direction="column"
+          justifyContent="center"
+          style={{ minHeight: "100vh", marginLeft: "100px" }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              
-              />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+          <Paper elevation={10} style={paperStyle}>
+            <form onSubmit={handleSubmit}>
+              <Grid container direction="column" spacing={2}>
+                <Grid item>
+                  <Avatar
+                    style={avatarStyle}
+                    sx={{
+                      m: 1,
+                      bgcolor: "secondary.main",
+                      marginLeft: "150px",
+                    }}
+                  ></Avatar>
+                  <h2 style={{ marginLeft: "120px" }}>Sign In</h2>
+                  <TextField
+                    type="email"
+                    fullWidth
+                    label="Enter your email"
+                    placeholder="Email Address"
+                    variant="outlined"
+                    required
+                    style={{ marginTop: "80px" }}
+                    onChange={(e) =>
+                      setValues({ ...values, email: e.target.value })
+                    }
+                  />
+                </Grid>
+
+                <Grid item>
+                  <TextField
+                    type={values.showPass ? "text" : "password"}
+                    fullWidth
+                    label="Password"
+                    placeholder="Password"
+                    variant="outlined"
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, pass: e.target.value })
+                    }
+                  />
+                </Grid>
+
+                <Grid item>
+                  <Button type="submit" fullWidth variant="contained">
+                    Sign In
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+            </form>
+          </Paper>
+        </Grid>
       </Container>
-    </ThemeProvider>
+    </div>
   );
-}
+};
 
-
+export default Login;

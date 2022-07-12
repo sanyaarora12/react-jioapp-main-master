@@ -77,7 +77,7 @@ export default function Otp() {
           <br />
           <Button type="submit" color="primary" variant="contained">
             <Link
-              to="/form3"
+              to="/roughform"
               style={{ textDecoration: "none", color: "White" }}
             >
               Resend OTP
