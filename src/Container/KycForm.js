@@ -1,4 +1,5 @@
 import React from "react";
+// import axios from "axios";
 import { Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -20,6 +21,14 @@ const paperStyle = {
 };
 
 export default function App() {
+  // const [news,setNews]=React.useState([]);
+
+  // const fetchNews=()=>{
+  //   axios.get("http://www.postalpincode.in/Api-Details")
+  //   .then((response)=>{
+  //     setNews(response);
+  //   })
+  // }
   const margin = { margin: "0 5px" };
   const navigate = useNavigate();
   const onSubmit = (data) => {
@@ -81,6 +90,7 @@ export default function App() {
                 </Grid>
                 <Grid container spacing={1}>
                   <Grid item xs={12} align="right">
+                    {/* <button onClick={fetchNews}>click</button> */}
                     <Button
                       style={margin}
                       type="reset"
@@ -92,6 +102,7 @@ export default function App() {
                     <Button type="submit" variant="contained" color="primary">
                       Submit
                     </Button>
+                    
                   </Grid>
                 </Grid>
               </form>

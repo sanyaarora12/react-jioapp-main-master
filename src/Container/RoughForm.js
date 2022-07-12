@@ -1,13 +1,10 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import { Grid, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -31,7 +28,7 @@ export default function SignUp() {
     if (!Object.keys(errors).length) {
       navigate("/otp");
       localStorage.setItem("formData", JSON.stringify(formData));
-      displayData();
+      // displayData();
     }
   };
 
@@ -45,25 +42,25 @@ export default function SignUp() {
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
   const avatarStyle = { backgroundColor: "#0384fc" };
 
-  function displayData() {
-    if (localStorage.getItem("formData")) {
-      var output = document.querySelector("tbody");
-      output.innerHTML = "";
-      JSON.parse(localStorage.getItem("formData")).forEach((data) => {
-        output.innerHTML += `
-        <tr>
-        <td>${data.email}</td>
-        </tr>
-        <tr>
-        <td>${data.number}</td>
-        </tr>
-        <tr>
-        <td>${data.shopname}</td>
-        </tr>
-        `;
-      });
-    }
-  }
+  // function displayData() {
+  //   if (localStorage.getItem("formData")) {
+  //     var output = document.querySelector("tbody");
+  //     output.innerHTML = "";
+  //     JSON.parse(localStorage.getItem("formData")).forEach((data) => {
+  //       output.innerHTML += `
+  //       <tr>
+  //       <td>${data.email}</td>
+  //       </tr>
+  //       <tr>
+  //       <td>${data.number}</td>
+  //       </tr>
+  //       <tr>
+  //       <td>${data.shopname}</td>
+  //       </tr>
+  //       `;
+  //     });
+  //   }
+  // }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -102,6 +99,7 @@ export default function SignUp() {
                 autoFocus
                 error={formData?.errors?.email?.length > 0 ? true : false}
               />
+
               <TextField
                 margin="normal"
                 required
@@ -125,10 +123,6 @@ export default function SignUp() {
                 autoComplete="current-phoneNumber"
                 error={formData?.errors?.shopname?.length > 0 ? true : false}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-              />
-              <NavLink to="/terms">Terms and conditions applied</NavLink>
 
               <Button
                 type="submit"
@@ -139,7 +133,7 @@ export default function SignUp() {
               >
                 SUBMIT
               </Button>
-              {/* <label>All fields are mandatory to fill</label> */}
+              <label>All the fields are mandatory to fill.</label>
             </Box>
           </Box>
         </Paper>
