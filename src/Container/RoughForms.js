@@ -1,23 +1,40 @@
 import { Container, Button, Grid, Paper, TextField } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from '../Components/auth';
 
 const Login = () => {
   const navigate = useNavigate();
+
   const [values, setValues] = useState({
     email: "",
     pass: "",
     showPass: false,
   });
+  
+  //  useEffect(()=>{
+  //   if(localStorage.getItem("token")){
+  //     navigate("/approval");
+  //   }
+  //  },[])
 
+  const [user,setUser]=useState('')
+  const auth=useAuth()
+
+  const handleLogin=()=>{
+    auth.login(user)
+    navigate('/approval',{replace:true})
+  }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://reqres.in/api/login", {
+      .post("https://mocki.io/v1/4120a0dc-b11b-4f11-a602-569140878fd6", {
         email: values.email,
         password: values.pass,
+        
       })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
@@ -25,6 +42,7 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   };
+
 
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
   const avatarStyle = { backgroundColor: "#0384fc" };
@@ -60,9 +78,10 @@ const Login = () => {
                     variant="outlined"
                     required
                     style={{ marginTop: "80px" }}
-                    onChange={(e) =>
-                      setValues({ ...values, email: e.target.value })
-                    }
+                    // onChange={(e) =>
+                    //   setValues({ ...values, email: e.target.value })
+                    // }
+                    onChange={(e)=>setUser(e.target.value)}
                   />
                 </Grid>
 
@@ -78,10 +97,11 @@ const Login = () => {
                       setValues({ ...values, pass: e.target.value })
                     }
                   />
+                  
                 </Grid>
 
                 <Grid item>
-                  <Button type="submit" fullWidth variant="contained">
+                  <Button onClick={handleLogin} type="submit" fullWidth variant="contained">
                     Sign In
                   </Button>
                 </Grid>

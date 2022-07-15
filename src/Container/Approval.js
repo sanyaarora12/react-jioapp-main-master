@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Components/auth";
 import data from "./data.json";
 
 export default function Approval() {
@@ -12,6 +14,14 @@ export default function Approval() {
   const handleClick = () => {
     alert("accepted!");
   };
+  const auth=useAuth()
+  const navigate=useNavigate()
+
+  const handleLogout=()=>{
+    auth.logout()
+    navigate('/')
+  }
+ 
   return (
     <div id="output">
       <h1 style={{ color: "darkblue", marginLeft: "500px" }}>
@@ -54,6 +64,7 @@ export default function Approval() {
           ))}
         </tbody>
       </table>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
