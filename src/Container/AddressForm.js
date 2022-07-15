@@ -9,41 +9,41 @@ import { Grid, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Validations from "./Validation";
+import ValidatedAddress from "./ValidatedAddress";
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function Address() {
   let navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    phonenumber: "",
-    shopname: "",
-  });
+  const [formData, setFormData] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const errors = Validations(formData);
+    const errors = ValidatedAddress(formData);
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
-      navigate("/otp");
-      localStorage.setItem("formData", JSON.stringify(formData));
-      // displayData();
+      navigate("/SuccessfulRegistration");
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    console.log(e);
   };
 
   console.log(formData);
-  const paperStyle = { padding: 20, height: "90vh", width: 400 };
+  const paperStyle = {
+    padding: 20,
+    height: "auto",
+    width: 500,
+    marginLeft: "-50px",
+  };
   const avatarStyle = { backgroundColor: "#0384fc" };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" align="center">
         <CssBaseline />
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
@@ -51,11 +51,11 @@ export default function SignUp() {
               style={avatarStyle}
               sx={{ m: 1, bgcolor: "secondary.main" }}
             ></Avatar>
-            <h2>Sign up</h2>
+            <h2>Address</h2>
           </Grid>
           <Box
             sx={{
-              marginTop: 8,
+              marginTop: 4,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -70,43 +70,51 @@ export default function SignUp() {
               <TextField
                 margin="normal"
                 required
+                id="line1"
                 fullWidth
-                id="email"
-                label="Email Address"
+                label="Address line1"
                 onChange={handleChange}
-                name="email"
-                autoComplete="email"
+                name="line1"
                 autoFocus
-                error={formData?.errors?.email?.length > 0 ? true : false}
+                error={formData?.errors?.line1?.length > 0 ? true : false}
               />
 
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="phonenumber"
+                name="city"
                 onChange={handleChange}
-                label="Phone Number"
-                id="phoneNumber"
-                autoComplete="current-phoneNumber"
-                error={formData?.errors?.phonenumber?.length > 0 ? true : false}
+                label="city"
+                id="city"
+                autoComplete="city"
+                error={formData?.errors?.city?.length > 0 ? true : false}
               />
 
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="shopname"
+                name="state"
                 onChange={handleChange}
-                label="Shop Name"
-                id="shopname"
-                autoComplete="current-phoneNumber"
-                error={formData?.errors?.shopname?.length > 0 ? true : false}
+                label="state"
+                id="state"
+                error={formData?.errors?.state?.length > 0 ? true : false}
+              />
+
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="zip"
+                onChange={handleChange}
+                label="Zip Code"
+                id="zip"
+                error={formData?.errors?.zip?.length > 0 ? true : false}
               />
 
               <Button
                 type="submit"
-                fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={handleSubmit}
