@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Validations from "./Validation";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -26,45 +27,48 @@ export default function SignUp() {
     const errors = Validations(formData);
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
-      navigate("/otp");
+      apiSubmit();
       localStorage.setItem("formData", JSON.stringify(formData));
-      // displayData();
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(e);
   };
 
-  console.log(formData);
+  const apiSubmit = (e) => {
+    axios.post("http://localhost:9090/signup", {
+        email: formData.email,
+        phone: parseInt(formData.phonenumber),
+        shop_name:formData.shopname,
+        isApprover:false,
+        isRetailer:true,
+        password:"xyz"
+      })
+      .then((res) => {
+        generateOtp();
+        console.log(res.data)
+      })
+      .catch((err) => console.error(err));
+  };
+  
+  const generateOtp=()=>{
+    axios.post("http://localhost:9090/generateotp",{
+      email:formData.email,
+    })
+    .then((res)=>{
+      navigate("/otp");
+    })
+  }
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
   const avatarStyle = { backgroundColor: "#0384fc" };
 
-  // function displayData() {
-  //   if (localStorage.getItem("formData")) {
-  //     var output = document.querySelector("tbody");
-  //     output.innerHTML = "";
-  //     JSON.parse(localStorage.getItem("formData")).forEach((data) => {
-  //       output.innerHTML += `
-  //       <tr>
-  //       <td>${data.email}</td>
-  //       </tr>
-  //       <tr>
-  //       <td>${data.number}</td>
-  //       </tr>
-  //       <tr>
-  //       <td>${data.shopname}</td>
-  //       </tr>
-  //       `;
-  //     });
-  //   }
-  // }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <form >
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
             <Avatar
@@ -132,10 +136,10 @@ export default function SignUp() {
               >
                 SUBMIT
               </Button>
-              <label>All the fields are mandatory to fill.</label>
             </Box>
           </Box>
         </Paper>
+        </form>
       </Container>
     </ThemeProvider>
   );

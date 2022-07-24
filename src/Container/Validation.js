@@ -1,6 +1,6 @@
 export default function Validations(values) {
 
-  console.log(values);
+  // console.log(values);
     let errors = {};
     
     if (!values.email || values.email==="") {
@@ -9,7 +9,7 @@ export default function Validations(values) {
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = 'Email address is invalid';
     }
-    if (!values.phonenumber || values.phonenumber==="") {
+    if (!values.phonenumber || values.phonenumber==="" || values.phonenumber.length>10 ) {
       errors.phonenumber = 'Phone number is required';
       
     } else if (values.phonenumber.length < 10) {

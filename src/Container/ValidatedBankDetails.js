@@ -8,7 +8,7 @@ export default function ValidatedBankDetails(values) {
     errors.pan = "pan address is invalid";
   }
   if (!values.aadhar || values.aadhar === "") {
-    errors.aadhar = "AAdhar number is required";
+    errors.aadhar = "Aadhar number is required";
   } else if (!/^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}?$/.test(values.aadhar)) {
     errors.aadhar = "Aadharnumber invalid";
   }
