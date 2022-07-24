@@ -1,6 +1,6 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ValidatedAddress from "./ValidatedAddress";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -40,7 +41,37 @@ export default function Address() {
     marginLeft: "-50px",
   };
   const avatarStyle = { backgroundColor: "#0384fc" };
+  const [data, setData] = useState([]);
+  const [state, setState] = useState([]);
+  const [city, setCity] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get(
+        "https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json"
+      )
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  let country = [...new Set(data.map((item) => item.country))];
+  country.sort();
+
+  const handleCountryChange = (e) => {
+    setState("Select State");
+    setCity("Select City");
+
+    let Singlecountry = data.filter((item) => item.country === e.target.value);
+
+    let states = [...new Set(Singlecountry.map((item) => item.subcountry))];
+
+    setState(states);
+  };
+
+  const handleStateChange = (e) => {
+    let singleCity = data.filter((item) => item.subcountry === e.target.value);
+    setCity(singleCity);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" align="center">
@@ -112,6 +143,39 @@ export default function Address() {
                 id="zip"
                 error={formData?.errors?.zip?.length > 0 ? true : false}
               />
+              {/* <Grid>
+                <label>Country: </label>
+                <select onChange={(e) => handleCountryChange(e)}>
+                  <option>Select Country</option>
+                  {country?.map((item, index) => (
+                    <option key={index} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+
+                <label>State: </label>
+                <select onChange={(e) => handleStateChange(e)}>
+                  <option>Select State</option>
+                  {state !== "Select State" &&
+                    state?.map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                </select>
+
+                <label>City: </label>
+                <select>
+                  <option>Select City</option>
+                  {city !== "Select City" &&
+                    city?.map((item, index) => (
+                      <option key={index} value={item?.name}>
+                        {item?.name}
+                      </option>
+                    ))}
+                </select>
+              </Grid> */}
 
               <Button
                 type="submit"
