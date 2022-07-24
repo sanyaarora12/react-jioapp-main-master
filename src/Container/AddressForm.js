@@ -16,7 +16,12 @@ const theme = createTheme();
 
 export default function Address() {
   let navigate = useNavigate();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    addressLine: "",
+    state: "",
+    city: "",
+    zipcode: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,20 +33,19 @@ export default function Address() {
   };
 
   const apiSubmit = (e) => {
-    axios.post("http://localhost:9090/addressOnboard", {
+    axios
+      .post("http://localhost:9090/addressOnboard", {
         // addressLine:formData.addressLine,
         // state:formData.state,
         // city:formData.city,
         // zipcode:formData.zipcode
-        addressLine:"",
-        state:"",
-        city:"",
-        zipcode:""
-
+        addressLine: "",
+        state: "",
+        city: "",
+        zipcode: "",
       })
       .then((res) => {
         navigate("/successfulregistration");
-      
       })
       .catch((err) => console.error(err));
   };
