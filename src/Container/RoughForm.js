@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Validations from "./Validation";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -26,9 +27,8 @@ export default function SignUp() {
     const errors = Validations(formData);
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
-      navigate("/otp");
+      apiSubmit();
       localStorage.setItem("formData", JSON.stringify(formData));
-      // displayData();
     }
   };
 
@@ -37,7 +37,30 @@ export default function SignUp() {
     setFormData({ ...formData, [name]: value });
   };
 
-  console.log(formData);
+  const apiSubmit = (e) => {
+    axios.post("http://localhost:9090/signup", {
+        email: formData.email,
+        phone: parseInt(formData.phonenumber),
+        shop_name:formData.shopname,
+        isApprover:false,
+        isRetailer:true,
+        password:"xyz"
+      })
+      .then((res) => {
+        generateOtp();
+        console.log(res.data)
+      })
+      .catch((err) => console.error(err));
+  };
+  
+  const generateOtp=()=>{
+    axios.post("http://localhost:9090/generateotp",{
+      email:formData.email,
+    })
+    .then((res)=>{
+      navigate("/otp");
+    })
+  }
   const paperStyle = { padding: 20, height: "90vh", width: 400 };
   const avatarStyle = { backgroundColor: "#0384fc" };
 
@@ -45,6 +68,7 @@ export default function SignUp() {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <form >
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
             <Avatar
@@ -116,6 +140,7 @@ export default function SignUp() {
             </Box>
           </Box>
         </Paper>
+        </form>
       </Container>
     </ThemeProvider>
   );

@@ -7,10 +7,10 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function Otp() {
   const [code, setCode] = useState("");
-
   const navigate = useNavigate();
 
   const handleChange = (code) => setCode(code);
@@ -18,7 +18,14 @@ export default function Otp() {
   const { handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    navigate("/KycForm");
+    // navigate("/KycForm");
+      axios.post("http://localhost:9090/generateotp",{
+        
+      })
+      .then((res)=>{
+        navigate("/otp");
+      })
+    
     console.log({ data });
   };
 

@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ValidatedBankDetails from "./ValidatedBankDetails";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -22,7 +23,8 @@ export default function Kyc() {
     const errors = ValidatedBankDetails(formData);
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
-      navigate("/AddressForm");
+      apiSubmit();
+      
     }
   };
 
@@ -32,7 +34,23 @@ export default function Kyc() {
     console.log(e);
   };
 
-  console.log(formData);
+  const apiSubmit = (e) => {
+    console.log("came here")
+    axios.post("http://localhost:9090/retailOnboard", {
+      aadharNumber: "",
+      panNumber:"",
+      ifscCode:"",
+      gstNumber:"",
+      accountNumber:"",
+      confirmAccountNumber:""
+      })
+      .then((res) => {
+        navigate("/addressform")
+        console.log(res.data)
+      })
+      .catch((err) => console.error(err));
+  };
+
   const paperStyle = {
     padding: 20,
     height: "auto",

@@ -1,6 +1,6 @@
 export default function Validations(values) {
 
-  console.log(values);
+  // console.log(values);
     let errors = {};
     
     if (!values.email || values.email==="") {

@@ -16,13 +16,13 @@ import RoughForms from "../Container/RoughForms";
 import Approval from "../Container/Approval";
 import { RequireAuth } from "./RequireAuth";
 import AddressForm from "../Container/AddressForm";
-import { AuthProvider } from "./auth";
+
 
 export default function Routers() {
   return (
     <div>
       <Router>
-        <AuthProvider>
+        
         <Routes>
           <Route exact path="/approval" element={<RequireAuth><Approval /></RequireAuth>} />
           <Route exact path="/" element={<Form />} />
@@ -41,12 +41,10 @@ export default function Routers() {
             path="/validatedbankdetails"
             element={<ValidatedBankDetails />}
           />
-          <Route
-            path="/successfulregistration"
-            element={<RequireAuth><SuccessfulRegistration /></RequireAuth>}
+          <Route path="/successfulregistration" element={<SuccessfulRegistration />}
           />
         </Routes>
-        </AuthProvider>
+        
       </Router>
     </div>
   );

@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ValidatedAddress from "./ValidatedAddress";
+import axios from "axios";
 
 const theme = createTheme();
 
@@ -22,8 +23,27 @@ export default function Address() {
     const errors = ValidatedAddress(formData);
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
-      navigate("/SuccessfulRegistration");
+      apiSubmit();
     }
+  };
+
+  const apiSubmit = (e) => {
+    axios.post("http://localhost:9090/addressOnboard", {
+        // addressLine:formData.addressLine,
+        // state:formData.state,
+        // city:formData.city,
+        // zipcode:formData.zipcode
+        addressLine:"",
+        state:"",
+        city:"",
+        zipcode:""
+
+      })
+      .then((res) => {
+        navigate("/successfulregistration");
+      
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleChange = (e) => {
