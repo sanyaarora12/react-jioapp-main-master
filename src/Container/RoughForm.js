@@ -112,7 +112,7 @@ export default function SignUp() {
                 onChange={handleChange}
                 label="Phone Number"
                 id="phoneNumber"
-                autoComplete="current-phoneNumber"
+                autoComplete="phoneNumber"
                 error={formData?.errors?.phonenumber?.length > 0 ? true : false}
               />
 
@@ -124,7 +124,6 @@ export default function SignUp() {
                 onChange={handleChange}
                 label="Shop Name"
                 id="shopname"
-                autoComplete="current-phoneNumber"
                 error={formData?.errors?.shopname?.length > 0 ? true : false}
               />
 

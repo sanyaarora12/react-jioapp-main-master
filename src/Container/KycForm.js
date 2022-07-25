@@ -16,7 +16,14 @@ const theme = createTheme();
 
 export default function Kyc() {
   let navigate = useNavigate();
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    aadharNumber: "",
+    panNumber: "",
+    ifscCode: "",
+    gstNumber: "",
+    accountNumber: "",
+    confirmAccountNumber: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,7 +31,6 @@ export default function Kyc() {
     setFormData({ ...formData, errors });
     if (!Object.keys(errors).length) {
       apiSubmit();
-      
     }
   };
 
@@ -35,18 +41,19 @@ export default function Kyc() {
   };
 
   const apiSubmit = (e) => {
-    console.log("came here")
-    axios.post("http://localhost:9090/retailOnboard", {
-      aadharNumber: "",
-      panNumber:"",
-      ifscCode:"",
-      gstNumber:"",
-      accountNumber:"",
-      confirmAccountNumber:""
+    console.log("came here");
+    axios
+      .post("http://localhost:9090/retailOnboard", {
+        aadharNumber: "",
+        panNumber: "",
+        ifscCode: "",
+        gstNumber: "",
+        accountNumber: "",
+        confirmAccountNumber: "",
       })
       .then((res) => {
-        navigate("/addressform")
-        console.log(res.data)
+        navigate("/addressform");
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
   };
