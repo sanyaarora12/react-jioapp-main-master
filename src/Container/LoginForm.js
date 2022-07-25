@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Button, Grid, Paper, TextField } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function LoginForm() {
   const navigate=useNavigate();
@@ -20,7 +21,21 @@ function LoginForm() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-    navigate('/')
+    apiSubmit();
+    navigate('/loginform')
+  };
+
+  const apiSubmit = (e) => {
+    axios.post("http://localhost:9090/signup", {
+        email: formValues.email,
+        isApprover:true,
+        isRetailer:false,
+        password:"xyz"
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -34,9 +49,6 @@ function LoginForm() {
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.username) {
-      errors.username = "Username is required!";
-    }
     if (!values.email) {
       errors.email = "Email is required!";
     } else if (!regex.test(values.email)) {
@@ -44,8 +56,8 @@ function LoginForm() {
     }
     if (!values.password) {
       errors.password = "Password is required";
-    } else if (values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters";
+    } else if (values.password.length < 2) {
+      errors.password = "Password must be more than 2 characters";
     } else if (values.password.length > 10) {
       errors.password = "Password cannot exceed more than 10 characters";
     }
@@ -66,7 +78,7 @@ function LoginForm() {
           style={{ minHeight: "100vh", marginLeft: "100px" }}
         >
           <Paper elevation={10} style={paperStyle}>
-            <form onSubmit={handleSubmit}>
+            <form >
               <Grid container direction="column" spacing={2}>
                 <Grid item>
                   <Avatar
@@ -77,7 +89,7 @@ function LoginForm() {
                       marginLeft: "150px",
                     }}
                   ></Avatar>
-                  <h2 style={{ marginLeft: "120px" }}>Sign In</h2>
+                  <h2 style={{ marginLeft: "120px" }}>Sign Up</h2>
                   <div className="field">
             <TextField
             type="email"
@@ -115,7 +127,7 @@ function LoginForm() {
                 </Grid>
 
                 <Grid item>
-                  <Button  type="submit" fullWidth variant="contained" style={{width:"300px",marginLeft:"20px"}}>
+                  <Button onClick={handleSubmit}  type="submit" fullWidth variant="contained" style={{width:"300px",marginLeft:"20px"}}>
                     Sign In
                   </Button>
                 </Grid>

@@ -24,7 +24,7 @@ export default function Routers() {
       <Router>
         
         <Routes>
-          <Route exact path="/approval" element={<RequireAuth><Approval /></RequireAuth>} />
+          <Route exact path="/approval" element={<Approval />} />
           <Route exact path="/" element={<Form />} />
           <Route exact path="/roughform" element={<RoughForm />} />
           <Route exact path="/roughforms" element={<RoughForms />} />

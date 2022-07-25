@@ -133,12 +133,18 @@ export default function SignInSide() {
                      {"Login for Approvers"}
                     </NavLink>
                   </Grid>
+                  </Grid>
                   <Grid item>
-                    <NavLink to="/roughform">
-                      {"Don't have an account? Sign Up"}{" "}
+                    <NavLink to="/loginform">
+                      {"Sign Up for Approvers"}{" "}
                     </NavLink>
                   </Grid>
-                </Grid>
+                  <Grid item>
+                    <NavLink to="/roughform">
+                      {"Sign Up for Retailers"}{" "}
+                    </NavLink>
+                  </Grid>
+                
                 <Copyright sx={{ mt: 5 }} />
               </Box>
             </Box>
